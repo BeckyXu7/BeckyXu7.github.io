@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<title>UQ Due Dates</title>
 	<link rel="stylesheet" href="css/style.css">
-
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 </head>
@@ -29,7 +28,9 @@
 		</div>
 		<div>
 			<h5>Courses: </h5>
-            <button id="edit" onclick="makeTableEditable()">Edit</button>
+            <!-- <button id="edit" onclick="makeTableEditable()" value="Edit">Edit</button> -->
+            <input type="button" value="Edit" id="edit" onclick="makeTableEditable()"></input> 
+            <p id="editMessage"></p>
 
 		</div>
 
@@ -49,15 +50,15 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class="text-center" id="content1">
+						<td class="task">
 							<a>
 								<em>Tutorial Exercise</em>
 								<br>
-								Tutorial Exercise
-                                <p id="hello"></p>
+								<div>Tutorial Exercise</div>
+                                
 							</a>
 						</td>
-						<td class="text-center">
+						<td class="date">
 
 
 							Weeks 2 to 13
@@ -68,14 +69,14 @@
 
 					</tr>
 					<tr>
-						<td class="text-center">
+						<td class="task">
 							<a>
 								<em>Problem Set/s</em>
 								<br>
-								Assignment 1
+								<p>Assignment 1</p>
 							</a>
 						</td>
-						<td class="text-center">
+						<td class="date">
 
 
 							Monday 12 August 2019, 1 pm
@@ -86,14 +87,14 @@
 
 					</tr>
 					<tr>
-						<td class="text-center">
+						<td class="task">
 							<a>
 								<em>In Class Quiz</em>
 								<br>
-								Quiz 1
+								<p>Quiz 1</p>
 							</a>
 						</td>
-						<td class="text-center">
+						<td class="date">
 
 
 							Week 5 (19/8 to 23/8) 
@@ -104,14 +105,14 @@
 
 					</tr>
 					<tr>
-						<td class="text-center">
+						<td class="task">
 							<a>
 								<em>Problem Set/s</em>
 								<br>
-								Assignment 2
+								<p>Assignment 2</p>
 							</a>
 						</td>
-						<td class="text-center">
+						<td class="date">
 
 
 							Monday 23 September 2019, 1 pm
@@ -122,14 +123,14 @@
 
 					</tr>
 					<tr>
-						<td class="text-center">
+						<td class="task">
 							<a>
 								<em>Exam - Mid Semester Outside Scheduled Class</em>
 								<br>
-								Mid Semester Exam
+								<p>Mid Semester Exam</p>
 							</a>
 						</td>
-						<td class="text-center">
+						<td class="date">
 
 
 							Either on Sat 31/8, Sat 7/9 or Sat 14/9 (exact date will be confirmed on Blackboard)
@@ -140,14 +141,14 @@
 
 					</tr>
 					<tr>
-						<td class="text-center">
+						<td class="task">
 							<a>
 								<em>In Class Quiz</em>
 								<br>
-								Quiz 2
+								<p>Quiz 2</p>
 							</a>
 						</td>
-						<td class="text-center">
+						<td class="date">
 
 
 							Week 12 (14/10 to 18/10) 
@@ -158,14 +159,14 @@
 
 					</tr>
 					<tr>
-						<td class="text-center">
+						<td class="task">
 							<a>
 								<em>Computer Exercise</em>
 								<br>
-								Matlab online modules
+								<p>Matlab online modules</p>
 							</a>
 						</td>
-						<td class="text-center">
+						<td class="date">
 							29 Jul 19 - 25 Oct 19
 							<br>
 
@@ -178,14 +179,14 @@
 
 					</tr>
 					<tr>
-						<td class="text-center">
+						<td class="task">
 							<a>
 								<em>Exam - during Exam Period (Central)</em>
 								<br>
-								Final Exam
+								<p>Final Exam</p>
 							</a>
 						</td>
-						<td class="text-center">                                                                            
+						<td class="date">                                                                            
 
 						</td>
 						<td class="text-center">
@@ -199,8 +200,39 @@
 
         <script>
         function makeTableEditable() {
-            document.getElementsByTagName("td").contentEditable = true;
-            document.getElementById("hello").innerHTML = "HELOOOOO";
+            var textOnButton = document.getElementById("edit");
+            console.log(document.getElementsByClassName("task"));
+            console.log(document.getElementsByClassName("date"));
+
+            var task = document.getElementsByClassName("task");
+            var date = document.getElementsByClassName("date");
+            if (textOnButton.value == "Edit") {
+                var i;
+                for (i = 0; i < task.length; i++) {
+                    task[i].contentEditable = true;
+                }
+
+                var j;
+                for (j = 0; j < task.length; j++) {
+                    date[j].contentEditable = true;
+                }
+
+                document.getElementById("editMessage").innerHTML = "You can edit assessment task and due date now";
+                textOnButton.value = "Save";
+            } else if (textOnButton.value == "Save") {
+                var i;
+                for (i = 0; i < task.length; i++) {
+                    task[i].contentEditable = false;
+                }
+
+                var j;
+                for (j = 0; j < task.length; j++) {
+                    date[j].contentEditable = false;
+                }
+                textOnButton.value = "Edit";
+                document.getElementById("editMessage").innerHTML = "";
+
+            }
         }
         </script>
 
