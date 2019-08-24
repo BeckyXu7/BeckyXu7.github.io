@@ -59,8 +59,12 @@
             <p id="editMessage"></p>
 
 		</div>
+		
+		<div id = "assessments">
+			123
+		</div>
 
-		<div id="assessments">
+		<div>
 			<table>
 				<thead>
 					<tr>
@@ -264,16 +268,34 @@
 		function addCourse(user_course_code, user_semester, user_year, user_mode){
 			console.log("add");
 			//$("p").append(" <b>Hello world!</b>");
+			// $.ajax({
+			// 	type: "POST",
+			// 	url: "uq_ass.php",
+			// 	data: { 
+			// 		course_code: user_course_code,
+			// 		semester: user_semester,
+			// 		mode: user_mode
+			// 	},
+			// 	dataType: 'json',
+			// 	success: function(result) {
+			// 		console.log(result);
+			// 		$('#assessments').append(result);
+			// 	}
+			// });
 			$.ajax({
-				type: "POST",
-				url: "uq_ass.php",
-				data: { 
-					course_code: user_course_code,
-					semester: user_semester,
-					year: user_year,
-					mode: user_mode,
-				},
-				dataType: 'json',
+				// type: "POST",
+				// url: "uq_ass.php",
+				// data: { 
+				// 	course_code: user_course_code,
+				// 	semester: user_semester,
+				// 	year: user_year,
+				// 	mode: user_mode,
+				// },
+				// dataType: 'json',
+
+				type: "GET",
+				url: "uq_ass.php?course_code="+user_course_code+"&semester="+user_semester+"&year="+user_year+"&mode="+user_mode,
+
 				success: function(result) {
 					console.log(result);
 					$('#assessments').append(result);
