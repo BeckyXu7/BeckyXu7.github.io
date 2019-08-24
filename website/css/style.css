@@ -107,8 +107,11 @@ input[type="text"]{
 #edit{
 	margin-top: 2vh;
 	width: 8vw;
+}
 
-
+#sort {
+	position: absolute;
+	right: 20px;
 }
 
 hr{

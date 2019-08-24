@@ -31,6 +31,7 @@
 	<div id="chooseBar">
 
 		<h3>ADD COURSE</h3>
+<<<<<<< HEAD
 			<input id="courseCodeInput" type="text" placeholder="ECON1010" name="courseCode">
 			<a href="#"><img id="searchIcon" src="images/searchIcon.png"></a>
 			<button id="addCourse" class="myButton">Add COURSE</button>		
@@ -49,7 +50,26 @@
 			<h4>Courses: </h4>
 			<div id="coursesArea"></div>
 			
+=======
+		<input id="courseCodeInput" type="text" placeholder="ECON1010" name="courseCode">
+		<a href="#"><img id="searchIcon" src="images/searchIcon.png"></a>
+		<button id="addCourse" class="myButton" onclick="addCourse('MATH1051','2019S2','internal')">Add COURSE</button>		
+		
+		<select>
+			<option>Semester 2, 2019</option>
+			<option>Semester 1, 2019</option>
+		</select>
+		<select>
+			<option>Internal</option>
+			<option>External</option>
+		</select>
 	</div>
+	<div>
+		<h4>Courses: </h4>
+		<div id="coursesArea"></div>		
+>>>>>>> master
+	</div>
+	<button id="sort" class="myButton">Sort by Time</button>
 
 		<div id="editBar">
 			<!--<h4>Courses: </h4>-->
@@ -228,8 +248,7 @@
 		</div>
 
 		<div id="button">
-        	<button class="myButton">List PDF</button>
-        	<button class="myButton">Time PDF</button>
+        	<button class="myButton">Download PDF</button>
         	<button class="myButton">Download iCalendar</button>
         </div>
         <footer>
