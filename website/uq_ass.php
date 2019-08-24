@@ -1,31 +1,32 @@
 <?php
 
-$user_course_code = $_POST["course_code"];
-$user_semester = $_POST["semester"];
-$user_mode = $_POST["mode"];
-//echo $user_course_code;
-//echo $user_semester;
-//echo $user_mode; External Internal
-
+$user_semester = $_REQUEST["semester"];
+$user_year = $_REQUEST["year"];
+$course_code = $_REQUEST["course_code"];
+$user_mode = $_REQUEST["mode"];
+//echo $course_code;
+//echo $semester;
+//echo $user_mode; //External Internal
 // if ($user_location = 'StLucia') {
 // 	$user_location = 'St Lucia';
 // }
 
-if ($semester == "2019S1") {
-	$semester = "Semester 1, 2019";
-}
+// if ($semester == "2019S1") {
+// 	$semester = "Semester 1, 2019";
+// }
 
-if ($semester == "2019S2") {
-	$semester = "Semester 2, 2019";
-}
+// if ($semester == "2019S2") {
+// 	$semester = "Semester 2, 2019";
+// }
+$semester = $user_semester.", ".$user_year;
 
-if ($user_mode == "internal" || $user_mode == "Internal") {
-	$user_mode = "Internal";
-}
+// if ($user_mode == "internal" || $user_mode == "Internal") {
+// 	$user_mode = "Internal";
+// }
 
-if ($user_mode == "external" || $user_mode == "External") {
-	$user_mode = "External";
-}
+// if ($user_mode == "external" || $user_mode == "External") {
+// 	$user_mode = "External";
+// }
 
 //search_course:https://my.uq.edu.au/programs-courses/course.html?course_code=
 //head:<div id="description" class="course">
@@ -37,9 +38,9 @@ if ($user_mode == "external" || $user_mode == "External") {
 
 ini_set('user_agent','Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; GreenBrowser)');
 
-$search_link="https://my.uq.edu.au/programs-courses/course.html?course_code=".$user_course_code;
+$search_link="https://my.uq.edu.au/programs-courses/course.html?course_code=".$course_code;
 
-if (!empty($user_course_code) && !empty($user_semester) && !empty($user_mode)) {
+if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 	$search_course_HTML = @file_get_contents($search_link);
 	$search_course_HTML = getMid($search_course_HTML,'<div id="description" class="course">','</table>');
 	$result = strstr($search_course_HTML,'Semester 1, 2019');
@@ -47,7 +48,7 @@ if (!empty($user_course_code) && !empty($user_semester) && !empty($user_mode)) {
 	$webcode = null;
 	$mode_checktime = 0;
 
-	echo $user_mode;
+	//echo $user_mode;
 	while ($user_mode != $mode && $mode_checktime < 2) {
 		$search_course_HTML = substr(strstr($search_course_HTML,$semester),16);
 		//echo $search_course_HTML;
@@ -65,16 +66,16 @@ if (!empty($user_course_code) && !empty($user_semester) && !empty($user_mode)) {
 
 	$search_link="https://course-profiles.uq.edu.au/student_section_loader/section_5/".$webcode;
 	$result = @file_get_contents($search_link);
-	echo $search_link;
+	//echo $search_link;
 
 	if ($result  != "") {
 		$result = '<table>'.getMid($result,'<table>','</table>').'</table>'; //get course web code
-		echo $result;
+		//echo $result;
 		$table = get_td_array($result);
 		foreach ($table as $value) {
 			//echo "1";
 			foreach ($value as $rvalue) {
-				//echo $rvalue."<br/>";
+				echo $rvalue."<br/>";
 			}
 		}
 	}
