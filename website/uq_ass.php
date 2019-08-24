@@ -69,7 +69,7 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 	//echo $search_link;
 
 	if ($result  != "") {
-		$result = '<table>'.getMid($result,'<table>','</table>').'</table>'; //get course web code
+		$result = getMid($result,'5.5 Assessment Detail</a> below.</p>','<h3>5.2 Course Grading</h3>'); //get course web code
 		//echo $result;
 		$table = get_td_array($result);
 		foreach ($table as $value) {
