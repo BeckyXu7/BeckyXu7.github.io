@@ -237,11 +237,12 @@
 		</footer>
 		
         <script>
-		
+		var courseArray = [];
 		$('#addCourse').click(function() {
 			var courseCode = $('#courseCodeInput').val();
-			console.log(courseCode);
-			if (courseCode != null && courseCode != "") {
+			if (jQuery.inArray(courseCode, courseArray) != -1) {
+			} else if (courseCode != null && courseCode != "") {
+				courseArray.push(courseCode);
 				var newCourse = $('<button class="myButton">' + courseCode + '<i class="far fa-times-circle"></i></button>')
 				$('#coursesArea').append(newCourse);
 			} else {
