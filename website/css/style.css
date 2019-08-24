@@ -238,7 +238,7 @@ table{
 }
 
 
-.childA{
+.course_title{
 	width: 15%;
 	margin-bottom: 1vh;
 	padding-top: 3vh;
@@ -251,7 +251,7 @@ table{
 
 }
 
-.childB{
+.assessment_title{
 	width: 35%;
 	 margin-bottom: 1vh;
   padding-top: 3vh;
@@ -262,7 +262,7 @@ table{
 
 }
 
-.childC{
+.date_title{
 	width: 35%;
 	 margin-bottom: 1vh;
     padding-top: 3vh;
@@ -272,7 +272,7 @@ table{
   color: white;
 }
 
-.childD{
+.weight_title{
 	width: 15%;
 	 margin-bottom: 1vh;
   padding-top: 3vh;
@@ -297,7 +297,7 @@ table{
 
 }*/
 
-.child1{
+.code{
 	width: 15%;
 	margin-bottom: 1vh;
 	padding-top: 3vh;
@@ -310,7 +310,7 @@ table{
 
 }
 
-.child2{
+.title{
 	width: 35%;
 	 margin-bottom: 1vh;
   padding-top: 1.5vh;
@@ -320,7 +320,7 @@ table{
   color: white;
 
 }
-.child3{
+.date{
 	width: 35%;
 	 margin-bottom: 1vh;
     padding-top: 1.5vh;
@@ -329,7 +329,7 @@ table{
   text-align: center;
   color: white;
 }
-.child4{
+.weight{
 	width: 15%;
 	 margin-bottom: 1vh;
   padding-top: 3vh;
