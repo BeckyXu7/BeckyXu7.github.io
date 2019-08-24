@@ -352,6 +352,13 @@ table{
   border-bottom-right-radius: 10px;
 }
 
+.addedCourse{
+	cursor: auto;
+}
+
+.fa-times-circle {
+	cursor: pointer;
+}
 #semester, #mode{
 	height: 5vh;
 	margin-left: 3vw;
