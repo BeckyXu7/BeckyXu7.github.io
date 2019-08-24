@@ -75,11 +75,12 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 		for ($i=0; $i<count($table); $i++) {
 			//echo $table[$i][1];
 			if (clearHtml($table[$i][1]) != "DueDate") {
-				//<img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)">
-			 	echo '<div class="code">'.$course_code.'</div>';
-			 	echo '<div class="title">'.$table[$i][0].'</div>';
-			 	echo '<div class="date">'.$table[$i][1].'</div>';
-			 	echo '<div class="weight">'.$table[$i][2].'</div>';
+				//
+				 echo '<div class="code">'.$course_code.'</div>';
+				 $table[$i][0] = trim(preg_replace("/\n\n/","<br>",trim($table[$i][0]))); 
+			 	 echo '<div class="title"><p>'.$table[$i][0].'</p><img src="images/edit3.png" width="20px" id="title'.$i.'" onclick="makeTableEditable('."'title'".','.$i.')"></div>';
+			 	 echo '<div class="date">'.$table[$i][1].'</div>';
+			 	 echo '<div class="weight">'.$table[$i][2].'</div>';
 			}
 		}
 	}
