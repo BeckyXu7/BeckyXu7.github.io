@@ -243,12 +243,17 @@
 			if (jQuery.inArray(courseCode, courseArray) != -1) {
 			} else if (courseCode != null && courseCode != "") {
 				courseArray.push(courseCode);
-				var newCourse = $('<button class="myButton">' + courseCode + '<i class="far fa-times-circle"></i></button>')
+				var newCourse = $('<button class="myButton addedCourse" onclick="removeItself(this)">' + courseCode + '<i class="far fa-times-circle"></i></button>')
 				$('#coursesArea').append(newCourse);
 			} else {
 				alert("Please input your course code first.");
 			}
 		})
+
+		function removeItself(elem) {
+			courseArray.splice( $.inArray(elem.innerHTML,courseArray) ,1 );
+			elem.parentNode.removeChild(elem);
+		}
 
 		function addCourse(user_course_code, user_semester, user_mode){
 			console.log("add");
