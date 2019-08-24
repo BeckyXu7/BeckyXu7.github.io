@@ -29,7 +29,7 @@
 		<div>
 			<h5>Courses: </h5>
             <!-- <button id="edit" onclick="makeTableEditable()" value="Edit">Edit</button> -->
-            <input type="button" value="Edit" id="edit" onclick="makeTableEditable()"></input> 
+            
             <p id="editMessage"></p>
 
 		</div>
@@ -75,6 +75,7 @@
 								<br>
 								<p>Assignment 1</p>
 							</a>
+							<input type="button" value="Edit" id="task1" onclick="makeTableEditable('task',1)"></input> 
 						</td>
 						<td class="date">
 
@@ -199,36 +200,31 @@
 		</div>
 
         <script>
-        function makeTableEditable() {
-            var textOnButton = document.getElementById("edit");
+        function makeTableEditable(type, index) {
+            var textOnButton = document.getElementById("task1");
             console.log(document.getElementsByClassName("task"));
             console.log(document.getElementsByClassName("date"));
-
-            var task = document.getElementsByClassName("task");
-            var date = document.getElementsByClassName("date");
+			if (type == "task") {
+				var task = document.getElementsByClassName("task");
+			} else {
+				var date = document.getElementsByClassName("date");
+			}
+            
+            
             if (textOnButton.value == "Edit") {
-                var i;
-                for (i = 0; i < task.length; i++) {
-                    task[i].contentEditable = true;
-                }
-
-                var j;
-                for (j = 0; j < task.length; j++) {
-                    date[j].contentEditable = true;
-                }
-
+				if (type == "task") {
+				task[index].contentEditable = true;
+			} else {
+				date[index].contentEditable = true;
+			}
                 document.getElementById("editMessage").innerHTML = "You can edit assessment task and due date now";
                 textOnButton.value = "Save";
             } else if (textOnButton.value == "Save") {
-                var i;
-                for (i = 0; i < task.length; i++) {
-                    task[i].contentEditable = false;
-                }
-
-                var j;
-                for (j = 0; j < task.length; j++) {
-                    date[j].contentEditable = false;
-                }
+				if (type == "task") {
+				task[index].contentEditable = false;
+			} else {
+				date[index].contentEditable = false;
+			}
                 textOnButton.value = "Edit";
                 document.getElementById("editMessage").innerHTML = "";
 
