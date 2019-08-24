@@ -5,29 +5,42 @@
 	<title>UQ Due Dates</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
+	<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	<div class="nav">
-		<img id="logo" src="images/logo.png" alt="logo">
-		<h1 id="title">UQ Due Dates</h1>
+		<ul>
+			<li><img id="logo" src="images/logo.png" alt="logo"></li>
+			<li><h1 id="title">Due Dates for UQ Course Assessments</h1></li>
+			<!--<li><a href="#" id="about">About us</a></li>-->
+		</ul>
+		
+
+	</div>
+	<hr>
+	<div id="instruction">
+		<h1 id="instructionTitle">Instruction</h1>
+		<p>Choose your courses, edit them and download your due dates calendar!</p>
+
 	</div>
 	
-	<div>
+	<div id="chooseBar">
 
-		<h4>ADD COURSE</h2>
+		<h3>ADD COURSE</h3>
 			<input type="text" placeholder="ECON1010" name="courseCode">
-			<a href="#"><img id="searchIcon" src="images/searchIcon.png"></a>
-			<button>Add COURSE</button>
+			<img id="searchIcon" src="images/searchIcon.png">
+			<button class="myButton">Add COURSE</button>
 			<select>
 				<option>Semester 2, 2019</option>
 				<option>Semester 1, 2019</option>
 			</select>
+			<h4>Courses: </h4>
 
-		</div>
-		<div>
-			<h5>Courses: </h5>
+	</div>
+
+		<div id="editBar">
+			<!--<h4>Courses: </h4>-->
             <!-- <button id="edit" onclick="makeTableEditable()" value="Edit">Edit</button> -->
             <input type="button" value="Edit" id="edit" onclick="makeTableEditable()"></input> 
             <p id="editMessage"></p>
@@ -235,6 +248,14 @@
             }
         }
         </script>
+        <div id="button">
+        	<button class="myButton">List PDF</button>
+        	<button class="myButton">Time PDF</button>
+        	<button class="myButton">Download iCalendar</button>
+        </div>
+        <footer>
+        	<p>Not affiliated with UQ. Always check the course profile.</p>
+        </footer>
 
 
 	</body>
