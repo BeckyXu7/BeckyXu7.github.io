@@ -141,18 +141,24 @@
 		}
 
 		function makeTableEditable(type, index) {
+			
 			var textOnButton = document.getElementById(type + index.toString());
 			var task = document.getElementsByClassName(type);
+			
 
-			if (textOnButton.value == "Edit") {
-				task[index].getElementsByTagName("p")[0].contentEditable = 'true';
-				console.log(task[index].getElementsByTagName("p"));
+			if (textOnButton.name == "Edit") {
+				
+				task[index-1].getElementsByTagName("p")[0].contentEditable = 'true';
+				
 				document.getElementById("editMessage").innerHTML = "You can edit assessment task and due date now";
-				textOnButton.value = "Save";
-			} else if (textOnButton.value == "Save") {
-				task[index].getElementsByTagName("p")[0].contentEditable = 'false';
-				textOnButton.value = "Edit";
+				textOnButton.name = "Save";
+				textOnButton.src = "images/edit_red.png";
+			} else if (textOnButton.name == "Save") {
+				task[index - 1].getElementsByTagName("p")[0].contentEditable = 'false';
+				textOnButton.name = "Edit";
 				document.getElementById("editMessage").innerHTML = "";
+				textOnButton.src = "images/edit.png";
+
 	
 			}
 		}
