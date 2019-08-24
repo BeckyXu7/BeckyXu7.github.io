@@ -5,6 +5,7 @@
 	<title>UQ Due Dates</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
 </head>
 
@@ -17,17 +18,24 @@
 	<div>
 
 		<h4>ADD COURSE</h2>
-			<input type="text" placeholder="ECON1010" name="courseCode">
+			<input id="courseCodeInput" type="text" placeholder="ECON1010" name="courseCode">
 			<a href="#"><img id="searchIcon" src="images/searchIcon.png"></a>
-			<button>Add COURSE</button>
+			<button id="addCourse">Add COURSE</button>
 			<select>
 				<option>Semester 2, 2019</option>
 				<option>Semester 1, 2019</option>
+			</select>
+			<select>
+				<option>Internal</option>
+				<option>External</option>
 			</select>
 
 		</div>
 		<div>
 			<h5>Courses: </h5>
+			<div id="coursesArea">
+
+			</div>
             <!-- <button id="edit" onclick="makeTableEditable()" value="Edit">Edit</button> -->
             <input type="button" value="Edit" id="edit" onclick="makeTableEditable()"></input> 
             <p id="editMessage"></p>
@@ -197,7 +205,7 @@
 				</tbody>
 			</table>
 		</div>
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
         function makeTableEditable() {
             var textOnButton = document.getElementById("edit");
@@ -233,7 +241,18 @@
                 document.getElementById("editMessage").innerHTML = "";
 
             }
-        }
+		}
+		
+		$('#addCourse').click(function() {
+			var courseCode = $('#courseCodeInput').val();
+			console.log(courseCode);
+			if (courseCode != null && courseCode != "") {
+				var newCourse = $('<button>' + courseCode + '<i class="far fa-times-circle"></i></button>')
+				$('#coursesArea').append(newCourse);
+			} else {
+				alert("Please input your course code first.");
+			}
+		})
         </script>
 
 
