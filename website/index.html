@@ -60,10 +60,7 @@
 
 		</div>
 
-		<div id = "assessments">
-		</div>
-
-		<div>
+		<div id="assessments">
 			<table>
 				<thead>
 					<tr>
@@ -227,15 +224,17 @@
 				</tbody>
 			</table>
 		</div>
+		<div id="editor"></div>
 
 		<div id="button">
-        	<button class="myButton">Download PDF</button>
+        	<button id="pdf" class="myButton">Download PDF</button>
         	<button class="myButton">Download iCalendar</button>
         </div>
         <footer>
         	<p>Not affiliated with UQ. Always check the course profile.</p>
 		</footer>
 		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.1/jspdf.debug.js" integrity="sha384-X4GDYnzplvo6FyFvNVyh5H6VQKJ1yYkkzUDmxppFT/GAYvnhB6y+zoHdCQweNJ1T" crossorigin="anonymous"></script>
         <script>
 		var courseArray = [];
 		$('.addCourse').click(function() {
@@ -312,6 +311,23 @@
 	
 			}
 		}
+
+		// PDF generation
+		var doc = new jsPDF();
+		var specialElementHandlers = {
+			'#editor': function (element, renderer) {
+				return true;
+			}
+		};
+
+		$('#pdf').click(function () {
+			doc.fromHTML($('#instruction').html(), 15, 15, {
+				'width': 170,
+					'elementHandlers': specialElementHandlers
+			});
+			doc.save('sample-file.pdf');
+		});
+ 
 		</script>
 
 
