@@ -59,56 +59,14 @@
             <p id="editMessage"></p>
 
 		</div>
+
+		<div class="parent" id = "assessments">
+			<div class="course_title">Course Code</div>
+			<div class="assessment_title">Assessment Task</div>
+			<div class="date_title">Due Dates</div>
+			<div class="weight_title">Weighting</div>
+		</div>
 		
-		<div id = "assessments">
-			
-		</div>
-
-		<div class="parent">
-			<div class="childA">Course Code</div>
-			<div class="childB">Assessment Task</div>
-			<div class="childC">Due Dates</div>
-			<div class="childD">Weighting</div>
-			<div class="child1">MATH1051</div>
-			<div class="child2"><p id="editButton">Tutorial Exercise<br>Tutorial Exercise</p><img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)"></div>
-			<div class="child3">Week 2 to 13</div>
-			<div class="child4">4%</div>
-			<div class="child1">MATH1051</div>
-			<div class="child2"><p id="editButton">Problem Set/s<br>Assignment 1</p><img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)"></div>
-			<div class="child3">Monday 12 August 2019, 1 pm</div>
-			<div class="child4">4%</div>
-			<div class="child1">MATH1051</div>
-			<div class="child2"><p id="editButton">In Class Quiz<br>Quiz 1</p><img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)"></div>
-			<div class="child3">Week 5 (19/8 to 23/8)</div>
-			<div class="child4">4%</div>
-			<div class="child1">MATH1051</div>
-			<div class="child2"><p id="editButton">Problem Set/s<br>Assignment 2</p><img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)"></div>
-			<div class="child3">Monday 23 September 2019, 1 pm</div>
-			<div class="child4">4%</div>
-			<div class="child1">MATH1051</div>
-			<div class="child2"><p id="editButton">Exam - Mid Semester Outside Scheduled Class<br>Mid Semester Exam</p><img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)"></div>
-			<div class="child3">Either on Sat 31/8, Sat 7/9 or Sat 14/9 (exact date will be confirmed on Blackboard)</div>
-			<div class="child4">20%</div>
-			<div class="child1">MATH1051</div>
-			<div class="child2"><p id="editButton">In Class Quiz<br>Quiz 2</p><img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)"></div>
-			<div class="child3">Week 12 (14/10 to 18/10)</div>
-			<div class="child4">4%</div>
-			<div class="child1">MATH1051</div>
-			<div class="child2"><p id="editButton">Computer Exercise<br>Matlab online modules</p><img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)"></div>
-			<div class="child3">29 Jul 19 - 25 Oct 19</div>
-			<div class="child4">10%</div>
-			<div class="child1">MATH1051</div>
-			<div class="child2"><p id="editButton">Exam - during Exam Period (Central)<br>Final Exam</p><img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)"></div>
-			<div class="child3">Examination Period</div>
-			<div class="child4">50%</div>
-
-
-
-
-
-
-
-		</div>
 		<div id="editor"></div>
 
 		<div id="button">
@@ -170,30 +128,16 @@
 		}
 
 		function makeTableEditable(type, index) {
-			var textOnButton = document.getElementById("task1");
-			console.log(document.getElementsByClassName("task"));
-			console.log(document.getElementsByClassName("date"));
-			if (type == "task") {
-				var task = document.getElementsByClassName("task");
-			} else {
-				var date = document.getElementsByClassName("date");
-			}
-			
-			
+			var textOnButton = document.getElementById(type + index.toString());
+			var task = document.getElementsByClassName(type);
+
 			if (textOnButton.value == "Edit") {
-				if (type == "task") {
-				task[index].contentEditable = true;
-			} else {
-				date[index].contentEditable = true;
-			}
+				task[index].getElementsByTagName("p")[0].contentEditable = 'true';
+				console.log(task[index].getElementsByTagName("p"));
 				document.getElementById("editMessage").innerHTML = "You can edit assessment task and due date now";
 				textOnButton.value = "Save";
 			} else if (textOnButton.value == "Save") {
-				if (type == "task") {
-				task[index].contentEditable = false;
-			} else {
-				date[index].contentEditable = false;
-			}
+				task[index].getElementsByTagName("p")[0].contentEditable = 'false';
 				textOnButton.value = "Edit";
 				document.getElementById("editMessage").innerHTML = "";
 	
