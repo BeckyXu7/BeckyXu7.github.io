@@ -72,21 +72,16 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 		$result = getMid($result,'5.5 Assessment Detail</a> below.</p>','<h3>5.2 Course Grading</h3>'); //get course web code
 		//echo $result;
 		$table = get_td_array($result);
-		echo '<div class="parent">';
-		echo '<div class="course_title">Course Code</div>';
-		echo '<div class="assessment_title">Assessment Task</div>';
-		echo '<div class="date_title">Due Dates</div>';
-		echo '<div class="weight_title">Weighting</div>';
 		for ($i=0; $i<count($table); $i++) {
 			//echo $table[$i][1];
 			if (clearHtml($table[$i][1]) != "DueDate") {
+				//<img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)">
 			 	echo '<div class="code">'.$course_code.'</div>';
 			 	echo '<div class="title">'.$table[$i][0].'</div>';
 			 	echo '<div class="date">'.$table[$i][1].'</div>';
 			 	echo '<div class="weight">'.$table[$i][2].'</div>';
 			}
 		}
-		echo '</div>';
 	}
 } else {
 	echo 'error: No completed parameter';

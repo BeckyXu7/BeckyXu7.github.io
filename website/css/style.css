@@ -22,8 +22,14 @@ h3, h4{
 	padding-top: 8vh;
 	padding-bottom: 5vh;
 
+}
 
+#sort{
+	margin-right: 8vw;
+}
 
+#coursesArea{
+	margin-left: 8vw;
 
 }
 
@@ -78,6 +84,10 @@ input[type="text"]{
 
 #courseCode{
 	text-align: center;
+}
+
+#courseCodeInput{
+	border-radius: 5px;
 }
 
 .nav{
@@ -319,6 +329,7 @@ table{
   text-align: center;
   color: white;
 
+
 }
 .date{
 	width: 35%;
@@ -339,6 +350,79 @@ table{
   color: white;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.addedCourse{
+	cursor: auto;
+}
+
+.fa-times-circle {
+	cursor: pointer;
+}
+#semester, #mode{
+	height: 5vh;
+	margin-left: 3vw;
+	
+	
+	
+}
+
+.buttonSet {
+	-moz-box-shadow:inset 3px 2px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 3px 2px 0px 0px #ffffff;
+	box-shadow:inset 3px 2px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+	background-color:#ffffff;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:2px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#5f3f8a;
+	font-family:Arial;
+	font-size:16px;
+	font-weight:bold;
+	padding:10px 16px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #ffffff;
+}
+.buttonSet:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+	background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+	background-color:#f6f6f6;
+}
+.buttonSet:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+#editButton{
+	display: inline;
+
+}
+
+#task1{
+
+	float: right;
+	margin-right: 2vw;
+	margin-left: -5vw;
+
+
+
 }
 
 
