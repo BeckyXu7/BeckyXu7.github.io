@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:800&display=swap" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
 </head>
 
 <body>
@@ -29,8 +31,10 @@
 
 		<h3>ADD COURSE</h3>
 			<input type="text" placeholder="ECON1010" name="courseCode">
-			<img id="searchIcon" src="images/searchIcon.png">
-			<button class="myButton">Add COURSE</button>
+
+			<a href="#"><img id="searchIcon" src="images/searchIcon.png"></a>
+			<button class="myButton" onclick="addCourse('MATH1051','2019S2','internal')">Add COURSE</button>
+			
 			<select>
 				<option>Semester 2, 2019</option>
 				<option>Semester 1, 2019</option>
@@ -42,9 +46,12 @@
 		<div id="editBar">
 			<!--<h4>Courses: </h4>-->
             <!-- <button id="edit" onclick="makeTableEditable()" value="Edit">Edit</button> -->
-            <input type="button" value="Edit" id="edit" onclick="makeTableEditable()"></input> 
+            
             <p id="editMessage"></p>
 
+		</div>
+
+		<div id = "assessments">
 		</div>
 
 		<div>
@@ -88,6 +95,7 @@
 								<br>
 								<p>Assignment 1</p>
 							</a>
+							<input type="button" value="Edit" id="task1" onclick="makeTableEditable('task',1)"></input> 
 						</td>
 						<td class="date">
 
@@ -211,43 +219,58 @@
 			</table>
 		</div>
 
-        <script>
-        function makeTableEditable() {
-            var textOnButton = document.getElementById("edit");
-            console.log(document.getElementsByClassName("task"));
-            console.log(document.getElementsByClassName("date"));
+		<script>
+			function addCourse(user_course_code, user_semester, user_mode){
+				console.log("add");
+				//$("p").append(" <b>Hello world!</b>");
+				$.ajax({
+					type: "POST",
+					url: "uq_ass.php",
+					data: { 
+						course_code: user_course_code,
+						 semester: user_semester,
+						  mode: user_mode
+					},
+					dataType: 'json',
+					success: function(result) {
+						$('#assessments').append(result);
+					}
+				});
+			}
 
-            var task = document.getElementsByClassName("task");
-            var date = document.getElementsByClassName("date");
-            if (textOnButton.value == "Edit") {
-                var i;
-                for (i = 0; i < task.length; i++) {
-                    task[i].contentEditable = true;
-                }
+			function makeTableEditable(type, index) {
+				var textOnButton = document.getElementById("task1");
+				console.log(document.getElementsByClassName("task"));
+				console.log(document.getElementsByClassName("date"));
+				if (type == "task") {
+					var task = document.getElementsByClassName("task");
+				} else {
+					var date = document.getElementsByClassName("date");
+				}
+				
+				
+				if (textOnButton.value == "Edit") {
+					if (type == "task") {
+					task[index].contentEditable = true;
+				} else {
+					date[index].contentEditable = true;
+				}
+					document.getElementById("editMessage").innerHTML = "You can edit assessment task and due date now";
+					textOnButton.value = "Save";
+				} else if (textOnButton.value == "Save") {
+					if (type == "task") {
+					task[index].contentEditable = false;
+				} else {
+					date[index].contentEditable = false;
+				}
+					textOnButton.value = "Edit";
+					document.getElementById("editMessage").innerHTML = "";
+		
+				}
+			}
+		</script>
 
-                var j;
-                for (j = 0; j < task.length; j++) {
-                    date[j].contentEditable = true;
-                }
 
-                document.getElementById("editMessage").innerHTML = "You can edit assessment task and due date now";
-                textOnButton.value = "Save";
-            } else if (textOnButton.value == "Save") {
-                var i;
-                for (i = 0; i < task.length; i++) {
-                    task[i].contentEditable = false;
-                }
-
-                var j;
-                for (j = 0; j < task.length; j++) {
-                    date[j].contentEditable = false;
-                }
-                textOnButton.value = "Edit";
-                document.getElementById("editMessage").innerHTML = "";
-
-            }
-        }
-        </script>
         <div id="button">
         	<button class="myButton">List PDF</button>
         	<button class="myButton">Time PDF</button>
