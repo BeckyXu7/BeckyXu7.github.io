@@ -74,11 +74,12 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 		$table = get_td_array($result);
 		for ($i=0; $i<count($table); $i++) {
 			//echo $table[$i][1];
-			if (clearHtml($table[$i][1]) != "DueDate") {
+			if (clearHtml($table[$i][1]) != "Due Date") {
 				//
 				 echo '<div class="code">'.$course_code.'</div>';
-				 $table[$i][0] = trim(preg_replace("/\n\n/","<br>",trim($table[$i][0]))); 
-			 	 echo '<div class="title"><p>'.$table[$i][0].'</p><img src="images/edit3.png" width="20px" id="title'.$i.'" onclick="makeTableEditable('."'title'".','.$i.')"></div>';
+				 $table[$i][0] = trim(preg_replace("/\n/","<br>",trim($table[$i][0]))); 
+				 $table[$i][0] = trim(str_replace_once("<br>","",trim($table[$i][0])));
+			 	 echo '<div class="title"><p>'.$table[$i][0].'</p><img class="task_edit" src="images/edit3.png" width="20px" id="title'.$i.'" onclick="makeTableEditable('."'title'".','.$i.')"></div>';
 			 	 echo '<div class="date">'.$table[$i][1].'</div>';
 			 	 echo '<div class="weight">'.$table[$i][2].'</div>';
 			}
@@ -116,8 +117,7 @@ function get_td_array($table) {
   $table = str_replace("</td>","{td}",$table);
   $table = preg_replace("'<[/!]*?[^<>]*?>'si","",$table);
   $table = preg_replace("'([rn])[s]+'","",$table);
-  $table = str_replace(" ","",$table);
-  $table = str_replace(" ","",$table);
+
   $table = explode('{tr}', $table);
   array_pop($table);
   foreach ($table as $key=>$tr) {
@@ -135,9 +135,18 @@ function clearHtml($str)
     $str = preg_replace("/\r\n/","",$str); 
     $str = preg_replace("/\r/","",$str); 
     $str = preg_replace("/\n/","",$str); 
-    $str = preg_replace("/ /","",$str);
-    $str = preg_replace("/  /","",$str); 
     return trim($str);
+}
+
+function str_replace_once($needle, $replace, $haystack) {
+    // Looks for the first occurence of $needle in $haystack
+    // and replaces it with $replace.
+    $pos = strpos($haystack, $needle);
+    if ($pos === false) {
+        // Nothing found
+        return $haystack;
+    }
+    return substr_replace($haystack, $replace, $pos, strlen($needle));
 }
 
 ?>
