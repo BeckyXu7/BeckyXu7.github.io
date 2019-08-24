@@ -144,17 +144,19 @@
 			
 			var textOnButton = document.getElementById(type + index.toString());
 			var task = document.getElementsByClassName(type);
-			
+			var input = task[index-1].getElementsByTagName("p")[0];
 
 			if (textOnButton.name == "Edit") {
 				
-				task[index-1].getElementsByTagName("p")[0].contentEditable = 'true';
-				
+				input.contentEditable = 'true';
+				input.focus();
 				document.getElementById("editMessage").innerHTML = "You can edit assessment task and due date now";
 				textOnButton.name = "Save";
 				textOnButton.src = "images/edit_red.png";
 			} else if (textOnButton.name == "Save") {
-				task[index - 1].getElementsByTagName("p")[0].contentEditable = 'false';
+
+				input.contentEditable = 'false';
+				input.focus();
 				textOnButton.name = "Edit";
 				document.getElementById("editMessage").innerHTML = "";
 				textOnButton.src = "images/edit.png";
