@@ -22,7 +22,7 @@
 
 	</div>
 	<hr>
-	<div id="instruction">
+	<div class="instruction">
 		<h1 id="instructionTitle">Instruction</h1>
 		<p>Choose your courses, edit them and download your due dates calendar!</p>
 
@@ -62,169 +62,50 @@
 		<div id = "assessments">
 		</div>
 
-		<div>
-			<table>
-				<thead>
-					<tr>
-						<td id="courseCode" colspan="4">MATH1051</td>
-					</tr>
-					<tr>
-
-						<td width="35%" class="text-center">Assessment Task</td>
-						<td width="35%" class="text-center">Due Date</td>
-						<td width="10%" class="text-center">Weighting</td>
-
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Tutorial Exercise</em>
-								<br>
-								<div>Tutorial Exercise</div>
-                                
-							</a>
-						</td>
-						<td class="date">
-
-
-							Weeks 2 to 13
-						</td>
-						<td class="text-center">
-							4%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Problem Set/s</em>
-								<br>
-								<p>Assignment 1</p>
-							</a>
-							<input type="button" value="Edit" id="task1" onclick="makeTableEditable('task',1)"></input> 
-						</td>
-						<td class="date">
-
-
-							Monday 12 August 2019, 1 pm
-						</td>
-						<td class="text-center">
-							4%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>In Class Quiz</em>
-								<br>
-								<p>Quiz 1</p>
-							</a>
-						</td>
-						<td class="date">
-
-
-							Week 5 (19/8 to 23/8) 
-						</td>
-						<td class="text-center">
-							4%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Problem Set/s</em>
-								<br>
-								<p>Assignment 2</p>
-							</a>
-						</td>
-						<td class="date">
-
-
-							Monday 23 September 2019, 1 pm
-						</td>
-						<td class="text-center">
-							4%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Exam - Mid Semester Outside Scheduled Class</em>
-								<br>
-								<p>Mid Semester Exam</p>
-							</a>
-						</td>
-						<td class="date">
-
-
-							Either on Sat 31/8, Sat 7/9 or Sat 14/9 (exact date will be confirmed on Blackboard)
-						</td>
-						<td class="text-center">
-							20%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>In Class Quiz</em>
-								<br>
-								<p>Quiz 2</p>
-							</a>
-						</td>
-						<td class="date">
-
-
-							Week 12 (14/10 to 18/10) 
-						</td>
-						<td class="text-center">
-							4%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Computer Exercise</em>
-								<br>
-								<p>Matlab online modules</p>
-							</a>
-						</td>
-						<td class="date">
-							29 Jul 19 - 25 Oct 19
-							<br>
+		<div class="parent">
+			<div class="childA">Course Code</div>
+			<div class="childB">Assessment Task</div>
+			<div class="childC">Due Dates</div>
+			<div class="childD">Weighting</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Tutorial Exercise<br>Tutorial Exercise<input type="button" value="Edit" id="task1" onclick="makeTableEditable('task',1)"></input></div>
+			<div class="child3">Week 2 to 13</div>
+			<div class="child4">4%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Problem Set/s<br>Assignment 1</div>
+			<div class="child3">Monday 12 August 2019, 1 pm</div>
+			<div class="child4">4%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">In Class Quiz<br>Quiz 1</div>
+			<div class="child3">Week 5 (19/8 to 23/8)</div>
+			<div class="child4">4%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Problem Set/s<br>Assignment 2</div>
+			<div class="child3">Monday 23 September 2019, 1 pm</div>
+			<div class="child4">4%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Exam - Mid Semester Outside Scheduled Class<br>Mid Semester Exam</div>
+			<div class="child3">Either on Sat 31/8, Sat 7/9 or Sat 14/9 (exact date will be confirmed on Blackboard)</div>
+			<div class="child4">20%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">In Class Quiz<br>Quiz 2</div>
+			<div class="child3">Week 12 (14/10 to 18/10)</div>
+			<div class="child4">4%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Computer Exercise<br>Matlab online modules</div>
+			<div class="child3">29 Jul 19 - 25 Oct 19</div>
+			<div class="child4">10%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Exam - during Exam Period (Central)<br>Final Exam</div>
+			<div class="child3">Examination Period</div>
+			<div class="child4">50%</div>
 
 
 
-						</td>
-						<td class="text-center">
-							10%<br>                                        
-						</td>
 
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Exam - during Exam Period (Central)</em>
-								<br>
-								<p>Final Exam</p>
-							</a>
-						</td>
-						<td class="date">                                                                            
 
-						</td>
-						<td class="text-center">
-							50%<br>                                        
-						</td>
 
-					</tr>
-				</tbody>
-			</table>
+
 		</div>
 
 		<div id="button">
@@ -304,4 +185,3 @@
 	</body>
 
 	</html>
-
