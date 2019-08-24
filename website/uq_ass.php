@@ -2,6 +2,7 @@
 
 $user_course_code = $_POST["course_code"];
 $user_semester = $_POST["semester"];
+$user_year = $_POST["year"];
 $user_mode = $_POST["mode"];
 //echo $user_course_code;
 //echo $user_semester;
@@ -11,21 +12,22 @@ $user_mode = $_POST["mode"];
 // 	$user_location = 'St Lucia';
 // }
 
-if ($semester == "2019S1") {
-	$semester = "Semester 1, 2019";
-}
+// if ($semester == "2019S1") {
+// 	$semester = "Semester 1, 2019";
+// }
 
-if ($semester == "2019S2") {
-	$semester = "Semester 2, 2019";
-}
+// if ($semester == "2019S2") {
+// 	$semester = "Semester 2, 2019";
+// }
+$semester = $user_semester + ", " + $user_year;
 
-if ($user_mode == "internal" || $user_mode == "Internal") {
-	$user_mode = "Internal";
-}
+// if ($user_mode == "internal" || $user_mode == "Internal") {
+// 	$user_mode = "Internal";
+// }
 
-if ($user_mode == "external" || $user_mode == "External") {
-	$user_mode = "External";
-}
+// if ($user_mode == "external" || $user_mode == "External") {
+// 	$user_mode = "External";
+// }
 
 //search_course:https://my.uq.edu.au/programs-courses/course.html?course_code=
 //head:<div id="description" class="course">
