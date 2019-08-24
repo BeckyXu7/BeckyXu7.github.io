@@ -72,12 +72,21 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 		$result = getMid($result,'5.5 Assessment Detail</a> below.</p>','<h3>5.2 Course Grading</h3>'); //get course web code
 		//echo $result;
 		$table = get_td_array($result);
-		foreach ($table as $value) {
-			//echo "1";
-			foreach ($value as $rvalue) {
-				echo $rvalue."<br/>";
+		echo '<div class="parent">';
+		echo '<div class="course_title">Course Code</div>';
+		echo '<div class="assessment_title">Assessment Task</div>';
+		echo '<div class="date_title">Due Dates</div>';
+		echo '<div class="weight_title">Weighting</div>';
+		for ($i=0; $i<count($table); $i++) {
+			//echo $table[$i][1];
+			if (clearHtml($table[$i][1]) != "DueDate") {
+			 	echo '<div class="code">'.$course_code.'</div>';
+			 	echo '<div class="title">'.$table[$i][0].'</div>';
+			 	echo '<div class="date">'.$table[$i][1].'</div>';
+			 	echo '<div class="weight">'.$table[$i][2].'</div>';
 			}
 		}
+		echo '</div>';
 	}
 } else {
 	echo 'error: No completed parameter';
@@ -123,6 +132,16 @@ function get_td_array($table) {
   return $td_array;
 }
 
-?>
+function clearHtml($str) 
+{ 
+    $str = trim($str); 
+    $str = preg_replace("/\t/","",$str); 
+    $str = preg_replace("/\r\n/","",$str); 
+    $str = preg_replace("/\r/","",$str); 
+    $str = preg_replace("/\n/","",$str); 
+    $str = preg_replace("/ /","",$str);
+    $str = preg_replace("/  /","",$str); 
+    return trim($str);
+}
 
-<!--   $table = preg_replace("'<[/!]*?[^<>]*?>'si","",$table); -->
+?>
