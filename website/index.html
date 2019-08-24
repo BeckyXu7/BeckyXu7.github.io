@@ -22,7 +22,7 @@
 
 	</div>
 	<hr>
-	<div id="instruction">
+	<div class="instruction">
 		<h1 id="instructionTitle">Instruction</h1>
 		<p>Choose your courses, edit them and download your due dates calendar!</p>
 
@@ -32,14 +32,14 @@
 
 		<h3>ADD COURSE</h3>
 			<input id="courseCodeInput" type="text" placeholder="ECON1010" name="courseCode">
-			<a href="#"><img id="searchIcon" src="images/searchIcon.png"></a>
-			<button id="addCourse" class="myButton" onclick="addCourse('CSSE1001','2019S2','internal')">Add COURSE</button>		
+			<a href="#"><img id="searchIcon" class="addCourse" src="images/searchIcon.png"></a>
+			<button class="addCourse myButton">Add COURSE</button>		
 			
-			<select>
+			<select id="semester">
 				<option>Semester 2, 2019</option>
 				<option>Semester 1, 2019</option>
 			</select>
-			<select>
+			<select id="mode">
 				<option>Internal</option>
 				<option>External</option>
 			</select>
@@ -50,6 +50,7 @@
 			<div id="coursesArea"></div>
 			
 	</div>
+	<button id="sort" class="myButton">Sort by Time</button>
 
 		<div id="editBar">
 			<!--<h4>Courses: </h4>-->
@@ -58,211 +59,126 @@
             <p id="editMessage"></p>
 
 		</div>
-
+		
 		<div id = "assessments">
+			123
 		</div>
 
-		<div>
-			<table>
-				<thead>
-					<tr>
-						<td id="courseCode" colspan="4">MATH1051</td>
-					</tr>
-					<tr>
-
-						<td width="35%" class="text-center">Assessment Task</td>
-						<td width="35%" class="text-center">Due Date</td>
-						<td width="10%" class="text-center">Weighting</td>
-
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Tutorial Exercise</em>
-								<br>
-								<div>Tutorial Exercise</div>
-                                
-							</a>
-						</td>
-						<td class="date">
-
-
-							Weeks 2 to 13
-						</td>
-						<td class="text-center">
-							4%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Problem Set/s</em>
-								<br>
-								<p>Assignment 1</p>
-							</a>
-							<input type="button" value="Edit" id="task1" onclick="makeTableEditable('task',1)"></input> 
-						</td>
-						<td class="date">
-
-
-							Monday 12 August 2019, 1 pm
-						</td>
-						<td class="text-center">
-							4%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>In Class Quiz</em>
-								<br>
-								<p>Quiz 1</p>
-							</a>
-						</td>
-						<td class="date">
-
-
-							Week 5 (19/8 to 23/8) 
-						</td>
-						<td class="text-center">
-							4%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Problem Set/s</em>
-								<br>
-								<p>Assignment 2</p>
-							</a>
-						</td>
-						<td class="date">
-
-
-							Monday 23 September 2019, 1 pm
-						</td>
-						<td class="text-center">
-							4%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Exam - Mid Semester Outside Scheduled Class</em>
-								<br>
-								<p>Mid Semester Exam</p>
-							</a>
-						</td>
-						<td class="date">
-
-
-							Either on Sat 31/8, Sat 7/9 or Sat 14/9 (exact date will be confirmed on Blackboard)
-						</td>
-						<td class="text-center">
-							20%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>In Class Quiz</em>
-								<br>
-								<p>Quiz 2</p>
-							</a>
-						</td>
-						<td class="date">
-
-
-							Week 12 (14/10 to 18/10) 
-						</td>
-						<td class="text-center">
-							4%<br>                                        
-						</td>
-
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Computer Exercise</em>
-								<br>
-								<p>Matlab online modules</p>
-							</a>
-						</td>
-						<td class="date">
-							29 Jul 19 - 25 Oct 19
-							<br>
+		<div class="parent">
+			<div class="childA">Course Code</div>
+			<div class="childB">Assessment Task</div>
+			<div class="childC">Due Dates</div>
+			<div class="childD">Weighting</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Tutorial Exercise<br>Tutorial Exercise<input type="button" value="Edit" id="task1" onclick="makeTableEditable('task',1)"></input></div>
+			<div class="child3">Week 2 to 13</div>
+			<div class="child4">4%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Problem Set/s<br>Assignment 1</div>
+			<div class="child3">Monday 12 August 2019, 1 pm</div>
+			<div class="child4">4%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">In Class Quiz<br>Quiz 1</div>
+			<div class="child3">Week 5 (19/8 to 23/8)</div>
+			<div class="child4">4%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Problem Set/s<br>Assignment 2</div>
+			<div class="child3">Monday 23 September 2019, 1 pm</div>
+			<div class="child4">4%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Exam - Mid Semester Outside Scheduled Class<br>Mid Semester Exam</div>
+			<div class="child3">Either on Sat 31/8, Sat 7/9 or Sat 14/9 (exact date will be confirmed on Blackboard)</div>
+			<div class="child4">20%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">In Class Quiz<br>Quiz 2</div>
+			<div class="child3">Week 12 (14/10 to 18/10)</div>
+			<div class="child4">4%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Computer Exercise<br>Matlab online modules</div>
+			<div class="child3">29 Jul 19 - 25 Oct 19</div>
+			<div class="child4">10%</div>
+			<div class="child1">MATH1051</div>
+			<div class="child2">Exam - during Exam Period (Central)<br>Final Exam</div>
+			<div class="child3">Examination Period</div>
+			<div class="child4">50%</div>
 
 
 
-						</td>
-						<td class="text-center">
-							10%<br>                                        
-						</td>
 
-					</tr>
-					<tr>
-						<td class="task">
-							<a>
-								<em>Exam - during Exam Period (Central)</em>
-								<br>
-								<p>Final Exam</p>
-							</a>
-						</td>
-						<td class="date">                                                                            
 
-						</td>
-						<td class="text-center">
-							50%<br>                                        
-						</td>
 
-					</tr>
-				</tbody>
-			</table>
+
 		</div>
+		<div id="editor"></div>
 
 		<div id="button">
-        	<button class="myButton">List PDF</button>
-        	<button class="myButton">Time PDF</button>
+        	<button id="pdf" class="myButton">Download PDF</button>
         	<button class="myButton">Download iCalendar</button>
         </div>
         <footer>
         	<p>Not affiliated with UQ. Always check the course profile.</p>
 		</footer>
 		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.1/jspdf.debug.js" integrity="sha384-X4GDYnzplvo6FyFvNVyh5H6VQKJ1yYkkzUDmxppFT/GAYvnhB6y+zoHdCQweNJ1T" crossorigin="anonymous"></script>
         <script>
 		var courseArray = [];
-		$('#addCourse').click(function() {
-			var courseCode = $('#courseCodeInput').val();
+		$('.addCourse').click(function() {
+			var courseCode = $('#courseCodeInput').val().toUpperCase();
 			if (jQuery.inArray(courseCode, courseArray) != -1) {
 			} else if (courseCode != null && courseCode != "") {
 				courseArray.push(courseCode);
-				var newCourse = $('<button class="myButton">' + courseCode + '<i class="far fa-times-circle"></i></button>')
+				var newCourse = $('<button class="myButton addedCourse" onclick="removeItself(this)">' + courseCode + '<i class="far fa-times-circle"></i></button>')
 				$('#coursesArea').append(newCourse);
+
+				var semester = $('#semester').val().split(", ")[0];
+				var year = $('#semester').val().split(", ")[1];
+				console.log(semester);
+				console.log(year);
+				var mode = $('#mode').val();
+				addCourse(courseCode, semester, year, mode);
 			} else {
 				alert("Please input your course code first.");
 			}
 		})
 
-		function addCourse(user_course_code, user_semester, user_mode){
+		function removeItself(elem) {
+			courseArray.splice( $.inArray(elem.innerHTML,courseArray) ,1 );
+			elem.parentNode.removeChild(elem);
+		}
+
+		function addCourse(user_course_code, user_semester, user_year, user_mode){
 			console.log("add");
 			//$("p").append(" <b>Hello world!</b>");
+			// $.ajax({
+			// 	type: "POST",
+			// 	url: "uq_ass.php",
+			// 	data: { 
+			// 		course_code: user_course_code,
+			// 		semester: user_semester,
+			// 		mode: user_mode
+			// 	},
+			// 	dataType: 'json',
+			// 	success: function(result) {
+			// 		console.log(result);
+			// 		$('#assessments').append(result);
+			// 	}
+			// });
 			$.ajax({
-				type: "POST",
-				url: "uq_ass.php",
-				data: { 
-					course_code: user_course_code,
-						semester: user_semester,
-						mode: user_mode
-				},
-				dataType: 'json',
+				// type: "POST",
+				// url: "uq_ass.php",
+				// data: { 
+				// 	course_code: user_course_code,
+				// 	semester: user_semester,
+				// 	year: user_year,
+				// 	mode: user_mode,
+				// },
+				// dataType: 'json',
+
+				type: "GET",
+				url: "uq_ass.php?course_code="+user_course_code+"&semester="+user_semester+"&year="+user_year+"&mode="+user_mode,
+
 				success: function(result) {
+					console.log(result);
 					$('#assessments').append(result);
 				}
 			});
@@ -298,10 +214,26 @@
 	
 			}
 		}
+
+		// PDF generation
+		var doc = new jsPDF();
+		var specialElementHandlers = {
+			'#editor': function (element, renderer) {
+				return true;
+			}
+		};
+
+		$('#pdf').click(function () {
+			doc.fromHTML($('#instruction').html(), 15, 15, {
+				'width': 170,
+					'elementHandlers': specialElementHandlers
+			});
+			doc.save('sample-file.pdf');
+		});
+ 
 		</script>
 
 
 	</body>
 
 	</html>
-
