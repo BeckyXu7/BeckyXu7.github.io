@@ -41,6 +41,8 @@ if (empty($output_type)) {
 	$output_type = "pdf";
 }
 
+$course_code = strtoupper($course_code);
+
 ini_set('user_agent','Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; GreenBrowser)');
 
 $search_link="https://my.uq.edu.au/programs-courses/course.html?course_code=".$course_code;
@@ -66,6 +68,7 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 		$webcode = getMid($search_course_HTML,'section_1/','" target="_blank"'); //get course web code
 	} else {
 		echo "mode not found";
+		return;
 	}
 	
 
@@ -77,6 +80,7 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 		$result = getMid($result,'5.5 Assessment Detail</a> below.</p>','<h3>5.2 Course Grading</h3>'); //get course web code
 		//echo $result;
 		$table = get_td_array($result);
+		echo '<div class="parent" id="'.$course_code.'">';
 		for ($i=0; $i<count($table); $i++) {
 			//echo $table[$i][1];
 			if (clearHtml($table[$i][1]) != "Due Date") {
@@ -93,9 +97,12 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 			 	echo '<div class="weight">'.$table[$i][2].'</div>';
 			}
 		}
+		echo '</div>';
+		return;
 	}
 } else {
 	echo 'error: No completed parameter';
+	return;
 }
 
 
