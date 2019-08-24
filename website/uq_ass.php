@@ -4,6 +4,7 @@ $user_semester = $_REQUEST["semester"];
 $user_year = $_REQUEST["year"];
 $course_code = $_REQUEST["course_code"];
 $user_mode = $_REQUEST["mode"];
+$output_type = $_REQUEST["type"];
 //echo $course_code;
 //echo $semester;
 //echo $user_mode; //External Internal
@@ -35,6 +36,10 @@ $semester = $user_semester.", ".$user_year;
 //" target="_blank"
 
 //course-offering-
+
+if (empty($output_type)) {
+	$output_type = "pdf";
+}
 
 ini_set('user_agent','Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; GreenBrowser)');
 
@@ -80,7 +85,11 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 				$table[$i][0] = trim(preg_replace("/\n/","<br>",trim($table[$i][0]))); 
 				$table[$i][0] = trim(str_replace_once("<br>","",trim($table[$i][0])));
 			 	echo '<div class="title"><p>'.$table[$i][0].'</p><img class="task_edit" src="images/edit3.png" width="20px" id="title'.$i.'" onclick="makeTableEditable('."'title'".','.$i.')"></div>';
-				echo '<div class="date">'.$table[$i][1].'<br><input type="datetime-local" value=null/></div>';
+				if ($output_type == "pdf") {
+					echo '<div class="date">'.$table[$i][1].'</div>';
+				} else {
+					echo '<div class="date">'.$table[$i][1].'<br><input type="datetime-local" value=null/></div>';
+				}
 			 	echo '<div class="weight">'.$table[$i][2].'</div>';
 			}
 		}

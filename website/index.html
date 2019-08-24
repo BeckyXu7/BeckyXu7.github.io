@@ -25,7 +25,10 @@
 	<div class="instruction">
 		<h1 id="instructionTitle">Instruction</h1>
 		<p>Choose your courses, edit them and download your due dates calendar!</p>
-
+		<select id="type" class="buttonSet">
+			<option>pdf</option>
+			<option>iCalendar</option>
+		</select>
 	</div>
 	
 	<div id="chooseBar">
@@ -95,7 +98,8 @@
 				var semester = $('#semester').val().split(", ")[0];
 				var year = $('#semester').val().split(", ")[1];
 				var mode = $('#mode').val();
-				addCourse(courseCode, semester, year, mode);
+				var type = $('#type').val();
+				addCourse(courseCode, semester, year, mode, type);
 			} else {
 				alert("Please input your course code first.");
 			}
@@ -108,7 +112,7 @@
 			button.parentNode.removeChild(button);
 		}
 
-		function addCourse(user_course_code, user_semester, user_year, user_mode){
+		function addCourse(user_course_code, user_semester, user_year, user_mode, user_type){
 			$.ajax({
 				// type: "POST",
 				// url: "uq_ass.php",
@@ -121,7 +125,7 @@
 				// dataType: 'json',
 
 				type: "GET",
-				url: "uq_ass.php?course_code="+user_course_code+"&semester="+user_semester+"&year="+user_year+"&mode="+user_mode,
+				url: "uq_ass.php?course_code="+user_course_code+"&semester="+user_semester+"&year="+user_year+"&mode="+user_mode+"&type="+user_type,
 
 				success: function(result) {
 					$('#assessments').append(result);
