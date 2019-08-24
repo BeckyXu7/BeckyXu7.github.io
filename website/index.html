@@ -60,17 +60,19 @@
 
 		</div>
 
-		<div class="parent" id = "assessments">
+		<div id="print">
+		<div class="parent" id="assessments">
 			<div class="course_title">Course Code</div>
 			<div class="assessment_title">Assessment Task</div>
 			<div class="date_title">Due Dates</div>
 			<div class="weight_title">Weighting</div>
 		</div>
+	</div>
 		
 		<div id="editor"></div>
 
 		<div id="button">
-        	<button id="pdf" class="myButton">Download PDF</button>
+        	<button id="pdf" class="myButton">Print or Download PDF</button>
         	<button class="myButton">Download iCalendar</button>
         </div>
         <footer>
@@ -144,20 +146,10 @@
 			}
 		}
 
-		// PDF generation
-		var doc = new jsPDF();
-		var specialElementHandlers = {
-			'#editor': function (element, renderer) {
-				return true;
-			}
-		};
-
 		$('#pdf').click(function () {
-			doc.fromHTML($('.parent').html(), 15, 15, {
-				'width': 170,
-					'elementHandlers': specialElementHandlers
-			});
-			doc.save('sample-file.pdf');
+			$('body').children().not('#print').hide()
+			window.print();
+			$('body').children().show();
 		});
  
 		</script>
