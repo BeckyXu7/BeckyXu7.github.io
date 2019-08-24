@@ -352,7 +352,6 @@ table{
   border-bottom-right-radius: 10px;
 }
 
-<<<<<<< HEAD
 .addedCourse{
 	cursor: auto;
 }
@@ -360,7 +359,6 @@ table{
 .fa-times-circle {
 	cursor: pointer;
 }
-=======
 #semester, #mode{
 	height: 5vh;
 	margin-left: 3vw;
@@ -427,7 +425,6 @@ table{
 
 }
 
->>>>>>> ca5d4abd3f12ff32e4f71369b0ba8374f258e882
 
 
 
