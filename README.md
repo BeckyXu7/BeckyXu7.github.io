@@ -12,8 +12,11 @@ UQDueDates is a webapp that <a more detailed intro>
 
 ### How to Use?
 
-* A step by step guide to use this webapp.
-
+* Students can search their enrolled courses one by one in the search bar
+* Simply click on 'Add course' button and assignments of the course will show up on the web page.
+* After adding all your courses, student can choose to:
+    1.Click on 'ICAL' button, a ICS(ical) file will be generated. Students can import the file to their calender applications.
+    2.Click on 'PDF' button, a PDF of schedule will be generated.
 
 ## Try it Out
 

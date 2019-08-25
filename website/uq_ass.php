@@ -4,6 +4,7 @@ $user_semester = $_REQUEST["semester"];
 $user_year = $_REQUEST["year"];
 $course_code = $_REQUEST["course_code"];
 $user_mode = $_REQUEST["mode"];
+$output_type = $_REQUEST["type"];
 //echo $course_code;
 //echo $semester;
 //echo $user_mode; //External Internal
@@ -36,6 +37,12 @@ $semester = $user_semester.", ".$user_year;
 
 //course-offering-
 
+if (empty($output_type)) {
+	$output_type = "pdf";
+}
+
+$course_code = strtoupper($course_code);
+
 ini_set('user_agent','Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; GreenBrowser)');
 
 $search_link="https://my.uq.edu.au/programs-courses/course.html?course_code=".$course_code;
@@ -61,6 +68,7 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 		$webcode = getMid($search_course_HTML,'section_1/','" target="_blank"'); //get course web code
 	} else {
 		echo "mode not found";
+		return;
 	}
 	
 
@@ -72,15 +80,32 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 		$result = getMid($result,'5.5 Assessment Detail</a> below.</p>','<h3>5.2 Course Grading</h3>'); //get course web code
 		//echo $result;
 		$table = get_td_array($result);
-		foreach ($table as $value) {
-			//echo "1";
-			foreach ($value as $rvalue) {
-				echo $rvalue."<br/>";
+		echo '<div class="parent" id="'.$course_code.'">';
+		for ($i=0; $i<count($table); $i++) {
+			//echo $table[$i][1];
+			if (clearHtml($table[$i][1]) != "Due Date") {
+				//
+
+
+				echo '<div class="code">'.$course_code.'</div>';
+				$table[$i][0] = trim(preg_replace("/\n/","<br>",trim($table[$i][0]))); 
+				$table[$i][0] = trim(str_replace_once("<br>","",trim($table[$i][0])));
+			 	echo '<div class="title"><p>'.$table[$i][0].'</p><input type="image" class="task_edit" name="Edit" src="images/edit.png" width="20px" id="title'.$i.'" onclick="makeTableEditable('."'title'".','.$i.')"></div>';
+				if ($output_type == "pdf") {
+					echo '<div class="date">'.$table[$i][1].'</div>';
+				} else {
+					echo '<div class="date">'.$table[$i][1].'<br><input type="datetime-local" value=null/></div>';
+				}
+			 	echo '<div class="weight">'.$table[$i][2].'</div>';
+
 			}
 		}
+		echo '</div>';
+		return;
 	}
 } else {
 	echo 'error: No completed parameter';
+	return;
 }
 
 
@@ -88,7 +113,7 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 // <td id="courseCode" colspan="4">MATH1051</td>
 // </tr>
 
-function generate_table($array) {
+function getTime($due_date) {
 
 }
 
@@ -111,8 +136,7 @@ function get_td_array($table) {
   $table = str_replace("</td>","{td}",$table);
   $table = preg_replace("'<[/!]*?[^<>]*?>'si","",$table);
   $table = preg_replace("'([rn])[s]+'","",$table);
-  $table = str_replace(" ","",$table);
-  $table = str_replace(" ","",$table);
+
   $table = explode('{tr}', $table);
   array_pop($table);
   foreach ($table as $key=>$tr) {
@@ -123,6 +147,25 @@ function get_td_array($table) {
   return $td_array;
 }
 
-?>
+function clearHtml($str) 
+{ 
+    $str = trim($str); 
+    $str = preg_replace("/\t/","",$str); 
+    $str = preg_replace("/\r\n/","",$str); 
+    $str = preg_replace("/\r/","",$str); 
+    $str = preg_replace("/\n/","",$str); 
+    return trim($str);
+}
 
-<!--   $table = preg_replace("'<[/!]*?[^<>]*?>'si","",$table); -->
+function str_replace_once($needle, $replace, $haystack) {
+    // Looks for the first occurence of $needle in $haystack
+    // and replaces it with $replace.
+    $pos = strpos($haystack, $needle);
+    if ($pos === false) {
+        // Nothing found
+        return $haystack;
+    }
+    return substr_replace($haystack, $replace, $pos, strlen($needle));
+}
+
+?>
