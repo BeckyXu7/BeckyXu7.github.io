@@ -78,7 +78,9 @@
 		<div id="button">
 
         	<button id="pdf" class="myButton">Print or Download PDF</button>
-        	<button id="iCalendar" class="myButton">Download iCalendar</button>
+        	<form id="iCalendar" action="generate_ical.php" method="get">
+        	<button class="myButton">Download iCalendar</button>
+        	</form>
 
         </div>
         <footer>
@@ -108,6 +110,36 @@
 				alert("Please input your course code first.");
 			}
 		})
+
+		function getTime() {
+
+			// BEGIN:VCALENDAR
+			// VERSION:2.0
+			// BEGIN:VEVENT
+			// DTSTART:20191024T060000Z
+			// DTEND:20191024T075000Z
+			// LOCATION:Hartley Teakle (83) S302
+			// DESCRIPTION:
+			// SUMMARY:INFS4203 T05
+			// PRIORITY:3
+			// END:VEVENT
+
+			var icsMSG = "BEGIN:VCALENDAR\nVERSION:2.0\n";
+			
+
+			msgData1 = $('.start-time').text();
+			msgData2 = $('.end-time').text();
+			msgData3 = $('.Location').text();
+
+			
+			icsMSG = icsMSG + "BEGIN:VEVENT\nDTSTART:" + "\n";
+			icsMSG = icsMSG + "DTEND:"+ "\n";
+			icsMSG = icsMSG + "SUMMARY:" + "\nEND:VEVENT";
+			
+			 $('.test').click(function(){
+			     window.open( "data:text/calendar;charset=utf8," + escape(icsMSG));
+			 });
+		}
 
 		function removeCourse(elem, courseCode) {
 			var button = elem.parentNode;
@@ -162,8 +194,9 @@
 				textOnButton.src = "images/edit_red.png";
 			} else if (textOnButton.name == "Save") {
 
+
 				text.contentEditable = 'false';
-				//input.focus();
+				text.focus();
 				textOnButton.name = "Edit";
 				document.getElementById("editMessage").innerHTML = "";
 				textOnButton.src = "images/edit3.png";
