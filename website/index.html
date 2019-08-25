@@ -78,7 +78,9 @@
 		<div id="button">
 
         	<button id="pdf" class="myButton">Print or Download PDF</button>
-        	<button id="iCalendar" class="myButton">Download iCalendar</button>
+        	<form id="iCalendar" action="generate_ical.php" method="get">
+        	<button class="myButton">Download iCalendar</button>
+        	</form>
 
         </div>
         <footer>
@@ -197,8 +199,9 @@
 				textOnButton.src = "images/edit_red.png";
 			} else if (textOnButton.name == "Save") {
 
-				textOnButton.contentEditable = 'false';
-				//input.focus();
+
+				text.contentEditable = 'false';
+				text.focus();
 				textOnButton.name = "Edit";
 				document.getElementById("editMessage").innerHTML = "";
 				textOnButton.src = "images/edit3.png";
