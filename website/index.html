@@ -147,23 +147,28 @@
 		function makeTableEditable(type, index) {
 			
 			var textOnButton = document.getElementById(type + index.toString());
-			var task = document.getElementsByClassName(type);
-			var input = task[index-1].getElementsByTagName("p")[0];
+			//var task = document.getElementsByClassName(type);
+			console.log(textOnButton);
+			var text = textOnButton.previousElementSibling;
+			//var input = task[index].getElementsByTagName("p")[0];
 
 			if (textOnButton.name == "Edit") {
 				
-				input.contentEditable = 'true';
-				input.focus();
+				text.contentEditable = 'true';
+				//input.focus();
+				text.focus();
+				setEndOfContenteditable(text);
 				document.getElementById("editMessage").innerHTML = "You can edit assessment task and due date now";
 				textOnButton.name = "Save";
 				textOnButton.src = "images/edit_red.png";
 			} else if (textOnButton.name == "Save") {
 
-				input.contentEditable = 'false';
-				input.focus();
+				text.contentEditable = 'false';
+				text.focus();
+				setEndOfContenteditable(text);
 				textOnButton.name = "Edit";
 				document.getElementById("editMessage").innerHTML = "";
-				textOnButton.src = "images/edit.png";
+				textOnButton.src = "images/edit3.png";
 
 	
 			}
@@ -176,6 +181,26 @@
 			$('body').children().show();
 			$('.task_edit').show();
 		});
+
+		function setEndOfContenteditable(contentEditableElement) {
+    		var range,selection;
+		    if(document.createRange)//Firefox, Chrome, Opera, Safari, IE 9+
+		    {
+		        range = document.createRange();//Create a range (a range is a like the selection but invisible)
+		        range.selectNodeContents(contentEditableElement);//Select the entire contents of the element with the range
+		        range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+		        selection = window.getSelection();//get the selection object (allows you to change selection)
+		        selection.removeAllRanges();//remove any selections already made
+		        selection.addRange(range);//make the range you have just created the visible selection
+		    }
+		    else if(document.selection)//IE 8 and lower
+		    { 
+		        range = document.body.createTextRange();//Create a range (a range is a like the selection but invisible)
+		        range.moveToElementText(contentEditableElement);//Select the entire contents of the element with the range
+		        range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+		        range.select();//Select the range (make it the visible selection
+		    }
+		}
  
 		</script>
 
