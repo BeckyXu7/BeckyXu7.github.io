@@ -109,6 +109,14 @@
 			}
 		})
 
+		$('#iCalendar').click(function(){
+			console.log("123");
+			//getTime()
+			
+			download("UQ due calender.ics",escape(getTime()));
+			//window.open( "data:text/calendar;charset=utf8," + escape(getTime()));
+		});
+
 		function getTime() {
 
 			// BEGIN:VCALENDAR
@@ -121,22 +129,55 @@
 			// SUMMARY:INFS4203 T05
 			// PRIORITY:3
 			// END:VEVENT
-
-			var icsMSG = "BEGIN:VCALENDAR\nVERSION:2.0\n";
 			
+			var course=document.getElementsByClassName("parent");
+			var startDate;
+			var endDate;
+			var Title;
+			var icsMSG = "BEGIN:VCALENDAR\nVERSION:2.0";
+			console.log(course.length);
+			for (var i = 1;i<course.length;i++) {
+				var ass=document.getElementsByClassName("parent")[i];
+				var courseCode = ass.getElementsByClassName("code")[0].innerHTML;
+				console.log(ass.getElementsByClassName("code").length);
+				for  (var j = 0;j<ass.getElementsByClassName("code").length;j++) {
+					console.log(ass.getElementsByClassName("code").length);
+					//2222-02-22T14:22
+					//2019 10 24 T060000Z
+					console.log($("#" + courseCode + "title" + j).text());
+					console.log($("#" + courseCode + "date" + j).val());
+					startDate = formatTime($("#" + courseCode + "date" + (1+(2*j))).val());
+					endDate = startDate;
+					Title = ($("#" + courseCode + "title" + (1+(2*j))).text()).replace('\n', ':');
+					icsMSG = icsMSG + "\nBEGIN:VEVENT\nDTSTART:" + startDate;
+					icsMSG = icsMSG + "\nDTEND:" + endDate;
+					icsMSG = icsMSG + "\nSUMMARY:" + Title + "\nEND:VEVENT";
+				}
+			};
+			console.log(icsMSG);
+			return icsMSG;
+		}
 
-			msgData1 = $('.start-time').text();
-			msgData2 = $('.end-time').text();
-			msgData3 = $('.Location').text();
+		function download(filename, text) {
+			var element = document.createElement('a');
+			element.setAttribute('href', 'data:text/calendar;charset=utf8,' + encodeURIComponent(text));
+			element.setAttribute('download', filename);
+			
+			element.style.display = 'none';
+			document.body.appendChild(element);
+			
+			element.click();
+			
+			document.body.removeChild(element);
+		}
 
-			
-			icsMSG = icsMSG + "BEGIN:VEVENT\nDTSTART:" + "\n";
-			icsMSG = icsMSG + "DTEND:"+ "\n";
-			icsMSG = icsMSG + "SUMMARY:" + "\nEND:VEVENT";
-			
-			 $('.test').click(function(){
-			     window.open( "data:text/calendar;charset=utf8," + escape(icsMSG));
-			 });
+
+		function formatTime(time) {
+			time = time.replace('-', '');
+			time = time.replace('-', '');
+			time = time.replace(':', '');
+			time = time+"00Z";
+			return time;
 		}
 
 		function removeCourse(elem, courseCode) {
