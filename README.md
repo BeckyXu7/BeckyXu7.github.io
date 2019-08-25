@@ -5,7 +5,7 @@
 ## Introduction
 UQDueDates is a WebApp that enables convenient access for UQ students to view essential information, especially the due dates, of their course assessment tasks, 
 and collect these information in an easily readible format of user's selection for download. This WepApp will retrieve the updated information from the designated course website in real time
-and automatically extract due dates information from the website data. The user can choose to either compile the data into a single PDF documents, or generate an
+and automatically extract due dates information from the website data. The user can choose to either compile the data into a single PDF document, or to generate an
 all-in-one iCalendar file to import these course assessment due date events into any popular Calendar application.
 
 ### How to Use?
