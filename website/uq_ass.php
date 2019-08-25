@@ -92,7 +92,7 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 				$table[$i][0] = trim(str_replace_once("<br>","",trim($table[$i][0])));
 			 	echo '<div class="title"><p>'.$table[$i][0].'</p><input type="image" class="task_edit" name="Edit" src="images/edit3.png" width="20px" id="'.$course_code.'title'.$i.'" onclick="makeTableEditable('."'".$course_code."title'".','.$i.')"></div>';
 				if ($output_type == "pdf") {
-					echo '<div class="date">'.$table[$i][1].'</div></p><input type="image" class="task_edit" name="Edit" src="images/edit3.png" width="20px" id="'.$course_code.'date'.$i.'" onclick="makeTableEditable('."'".$course_code."date'".','.$i.')"></div>';
+					echo '<div class="date">'.$table[$i][1].'</p><input type="image" class="task_edit" name="Edit" src="images/edit3.png" width="20px" id="'.$course_code.'date'.$i.'" onclick="makeTableEditable('."'".$course_code."date'".','.$i.')"></div>';
 				} else {
 					echo '<div class="date">'.$table[$i][1].'<br><input type="datetime-local" value=null/></div>';
 				}
@@ -114,7 +114,15 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 // </tr>
 
 function getTime($due_date) {
+    // msgData1 = $('.start-time').text();
+    // msgData2 = $('.end-time').text();
+    // msgData3 = $('.Location').text();
 
+    // var icsMSG = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Our Company//NONSGML v1.0//EN\nBEGIN:VEVENT\nUID:me@google.com\nDTSTAMP:20120315T170000Z\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::me@gmail.com\nDTSTART:" + msgData1 +"\nDTEND:" + msgData2 +"\nLOCATION:" + msgData3 + "\nSUMMARY:Our Meeting Office\nEND:VEVENT\nEND:VCALENDAR";
+
+    // $('.test').click(function(){
+    //     window.open( "data:text/calendar;charset=utf8," + escape(icsMSG));
+    // });
 }
 
 //not found return ''
