@@ -93,6 +93,11 @@ input[type="text"]{
 	height: 4vh;
 
 }
+::-webkit-input-placeholder{
+	font-weight: 10;
+	color: silver;
+
+}
 
 .nav{
 	background-color: #4b2b74;
@@ -450,8 +455,8 @@ table{
 }
 
 #add{
-	padding-top: 1.2vh;
-	padding-bottom: 1.2vh;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
 }
 
 #type{
