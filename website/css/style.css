@@ -111,9 +111,8 @@ input[type="text"]{
 
 .nav h1{
 	position: relative;
-	top: 18px;
- 	left: 10px;
- 	padding-top: 3vh;
+	height: 12vh;
+ 	padding-top: 5vh;
 }
 
 #editBar{
@@ -382,8 +381,9 @@ table{
 	cursor: pointer;
 }
 #semester, #mode{
-	height: 5vh;
+	min-height: 5vh;
 	margin-left: 3vw;
+
 	
 	
 	
@@ -442,6 +442,9 @@ table{
 	margin-right: 2vw;
 	margin-left: -5vw;
 
+
+
+
 }
 
 #add{
@@ -449,6 +452,9 @@ table{
 	padding-bottom: 1.2vh;
 }
 
+#type{
+	margin-top: 2vh;
+}
 
 
 

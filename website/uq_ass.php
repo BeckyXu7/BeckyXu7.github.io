@@ -90,7 +90,7 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 				echo '<div class="code">'.$course_code.'</div>';
 				$table[$i][0] = trim(preg_replace("/\n/","<br>",trim($table[$i][0]))); 
 				$table[$i][0] = trim(str_replace_once("<br>","",trim($table[$i][0])));
-			 	echo '<div class="title"><p>'.$table[$i][0].'</p><input type="image" class="task_edit" name="Edit" src="images/edit.png" width="20px" id="title'.$i.'" onclick="makeTableEditable('."'title'".','.$i.')"></div>';
+			 	echo '<div class="title"><p>'.$table[$i][0].'</p><input type="image" class="task_edit" name="Edit" src="images/edit3.png" width="20px" id="title'.$i.'" onclick="makeTableEditable('."'title'".','.$i.')"></div>';
 				if ($output_type == "pdf") {
 					echo '<div class="date">'.$table[$i][1].'</div>';
 				} else {
