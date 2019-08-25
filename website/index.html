@@ -73,8 +73,6 @@
 			</div>
 		</div>
 	</div>
-		
-		<div id="editor"></div>
 
 		<div id="button">
 
@@ -172,8 +170,10 @@
 
 		$('#pdf').click(function () {
 			$('body').children().not('#print').hide()
+			$('.task_edit').hide();
 			window.print();
 			$('body').children().show();
+			$('.task_edit').show();
 		});
  
 		</script>
