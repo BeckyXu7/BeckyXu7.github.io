@@ -90,10 +90,11 @@
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.1/jspdf.debug.js" integrity="sha384-X4GDYnzplvo6FyFvNVyh5H6VQKJ1yYkkzUDmxppFT/GAYvnhB6y+zoHdCQweNJ1T" crossorigin="anonymous"></script>
         <script>
-			
+			var loaded = false;
 			var courseArray = [];
 		
 		$('.addCourse').click(function() {
+			loaded = false;
 			var courseCode = $('#courseCodeInput').val().toUpperCase();
 			if (jQuery.inArray(courseCode, courseArray) != -1) {
 			} else if (courseCode != null && courseCode != "") {
@@ -142,18 +143,21 @@
 		}
 
 		function removeCourse(elem, courseCode) {
-			var button = elem.parentNode;
-			var course = button.innerHTML.split('<')[0];
-			var course_div = document.getElementById("divCell");
-			if (course_div != null){
-				course_div.parentNode.removeChild(course_div);
+			if (loaded) {
+				var button = elem.parentNode;
+				var course = button.innerHTML.split('<')[0];
+				var course_div = document.getElementById("divCell");
+				if (course_div != null){
+					course_div.parentNode.removeChild(course_div);
+				}
+				courseArray.splice( $.inArray(course,courseArray) ,1 );
+				$("#" + courseCode).remove();
+				button.parentNode.removeChild(button);
 			}
-			courseArray.splice( $.inArray(course,courseArray) ,1 );
-			$("#" + courseCode).remove();
-			button.parentNode.removeChild(button);
 		}
 
 		function addCourse(user_course_code, user_semester, user_year, user_mode, user_type){
+
 			$.ajax({
 				// type: "POST",
 				// url: "uq_ass.php",
@@ -169,7 +173,9 @@
 				url: "uq_ass.php?course_code="+user_course_code+"&semester="+user_semester+"&year="+user_year+"&mode="+user_mode+"&type="+user_type,
 
 				success: function(result) {
+					
 					$('#assessments').append(result);
+					loaded = true;
 				}
 			});
 		}
@@ -180,7 +186,7 @@
 			
 			var textOnButton = document.getElementById(type + index.toString());
 			//var task = document.getElementsByClassName(type);
-			console.log(textOnButton);
+
 			var text = textOnButton.previousElementSibling;
 			//var input = task[index].getElementsByTagName("p")[0];
 
@@ -189,6 +195,9 @@
 				text.contentEditable = 'true';
 				//input.focus();
 				text.focus();
+
+				setEndOfContenteditable(text);
+
 				document.getElementById("editMessage").innerHTML = "You can edit assessment task and due date now";
 				
 				textOnButton.name = "Save";
@@ -198,6 +207,7 @@
 
 				text.contentEditable = 'false';
 				text.focus();
+				setEndOfContenteditable(text);
 				textOnButton.name = "Edit";
 				document.getElementById("editMessage").innerHTML = "";
 				textOnButton.src = "images/edit3.png";
@@ -213,6 +223,26 @@
 			$('body').children().show();
 			$('.task_edit').show();
 		});
+
+		function setEndOfContenteditable(contentEditableElement) {
+    		var range,selection;
+		    if(document.createRange)//Firefox, Chrome, Opera, Safari, IE 9+
+		    {
+		        range = document.createRange();//Create a range (a range is a like the selection but invisible)
+		        range.selectNodeContents(contentEditableElement);//Select the entire contents of the element with the range
+		        range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+		        selection = window.getSelection();//get the selection object (allows you to change selection)
+		        selection.removeAllRanges();//remove any selections already made
+		        selection.addRange(range);//make the range you have just created the visible selection
+		    }
+		    else if(document.selection)//IE 8 and lower
+		    { 
+		        range = document.body.createTextRange();//Create a range (a range is a like the selection but invisible)
+		        range.moveToElementText(contentEditableElement);//Select the entire contents of the element with the range
+		        range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+		        range.select();//Select the range (make it the visible selection
+		    }
+		}
  
 		</script>
 
