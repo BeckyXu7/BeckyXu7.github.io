@@ -90,7 +90,7 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 				echo '<div class="code">'.$course_code.'</div>';
 				$table[$i][0] = trim(preg_replace("/\n/","<br>",trim($table[$i][0]))); 
 				$table[$i][0] = trim(str_replace_once("<br>","",trim($table[$i][0])));
-			 	echo '<div class="title"><p id="'.$course_code.'title'.$i.'">'.$table[$i][0].'</p><input type="image" class="task_edit" name="Edit" src="images/edit3.png" width="20px" id="'.$course_code.'title'.$i.'" onclick="makeTableEditable('."'".$course_code."title'".','.$i.')"></div>';
+			 	echo '<div class="title"><p id="'.$course_code.'TitleText'.$i.'">'.$table[$i][0].'</p><input type="image" class="task_edit" name="Edit" src="images/edit3.png" width="20px" id="'.$course_code.'title'.$i.'" onclick="makeTableEditable('."'".$course_code."title'".','.$i.')"></div>';
 				if ($output_type == "pdf") {
 					echo '<div class="date"><p>'.$table[$i][1].'</p><input type="image" class="task_edit" name="Edit" src="images/edit3.png" width="20px" id="'.$course_code.'date'.$i.'" onclick="makeTableEditable('."'".$course_code."date'".','.$i.')"></div>';
 				} else {
