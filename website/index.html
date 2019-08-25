@@ -33,7 +33,7 @@
 		<h3>ADD COURSE</h3>
 			<input id="courseCodeInput" type="text" placeholder="ECON1010" name="courseCode">
 			<a href="#"><img id="searchIcon" class="addCourse" src="images/searchIcon.png"></a>
-			<button class="addCourse buttonSet">Add COURSE</button>		
+			<button id="add" class="addCourse buttonSet">Add COURSE</button>		
 			
 			<select id="semester" class="buttonSet">
 				<option>Semester 2, 2019</option>
@@ -101,11 +101,10 @@
 			<div class="child2"><p id="editButton">Exam - during Exam Period (Central)<br>Final Exam</p><img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)"></div>
 			<div class="child3">Examination Period</div>
 			<div class="child4">50%</div>
-
-
-
-
-
+			<div class="child1">INFS3202</div>
+			<div class="child2"><p id="editButton">Tutorial Exercise<br>Tutorial Exercise</p><img src="images/edit3.png" width="20px" id="task1" onclick="makeTableEditable('task',1)"></div>
+			<div class="child3">Week 2 to 13</div>
+			<div class="child4">4%</div>
 
 
 		</div>
@@ -113,11 +112,12 @@
 
 		<div id="button">
         	<button id="pdf" class="myButton">Download PDF</button>
-        	<button class="myButton">Download iCalendar</button>
+        	<button id="iCalendar" class="myButton">Download iCalendar</button>
         </div>
         <footer>
-        	<p>Not affiliated with UQ. Always check the course profile.</p>
+        	<p>Not an official UQ Website. Please refer to the official course profile. </p>
 		</footer>
+
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.1/jspdf.debug.js" integrity="sha384-X4GDYnzplvo6FyFvNVyh5H6VQKJ1yYkkzUDmxppFT/GAYvnhB6y+zoHdCQweNJ1T" crossorigin="anonymous"></script>
         <script>

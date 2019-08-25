@@ -87,7 +87,9 @@ input[type="text"]{
 }
 
 #courseCodeInput{
-	border-radius: 5px;
+	border-radius: 7px;
+	height: 4vh;
+
 }
 
 .nav{
@@ -168,10 +170,26 @@ hr{
 }
 
 
+#pdf{
+
+	display: inline-block;
+}
+#iCalendar{
+
+	display: inline-block;
+}
+
+
+
 footer{
-	margin-top: 10vh;
+	margin-top: 20vh;
+	padding-top: 2vh;
 	text-align: center;
 
+	background-color:#3d3d3d; 
+	color: white; 
+	height:6vh; 
+	
 }
 
 table{
@@ -208,9 +226,9 @@ table{
 	background:linear-gradient(to bottom, #4b2b74 5%, #5c3d85 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4b2b74', endColorstr='#5c3d85',GradientType=0);
 	background-color:#4b2b74;
-	-moz-border-radius:9px;
-	-webkit-border-radius:9px;
-	border-radius:9px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
 	border:2px solid #3a146b;
 	display:inline-block;
 	cursor:pointer;
@@ -292,6 +310,8 @@ table{
   color: white;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+
+
 }
 
 
@@ -311,7 +331,7 @@ table{
 	width: 15%;
 	margin-bottom: 1vh;
 	padding-top: 3vh;
-  height: 6vh;
+  min-height: 6vh;
   background-color: #9969C7;
   text-align: center;
   color: white;
@@ -324,7 +344,7 @@ table{
 	width: 35%;
 	 margin-bottom: 1vh;
   padding-top: 1.5vh;
-  height: 7.5vh;
+  min-height: 7.5vh;
   background-color: #804FB3;
   text-align: center;
   color: white;
@@ -335,7 +355,7 @@ table{
 	width: 35%;
 	 margin-bottom: 1vh;
     padding-top: 1.5vh;
-  height: 7.5vh;
+  min-height: 7.5vh;
   background-color:#6A359C;
   text-align: center;
   color: white;
@@ -344,7 +364,7 @@ table{
 	width: 15%;
 	 margin-bottom: 1vh;
   padding-top: 3vh;
-  height: 6vh;
+  min-height: 6vh;
   background-color: #552586;
   text-align: center;
   color: white;
@@ -372,9 +392,9 @@ table{
 	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
 	background-color:#ffffff;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
 	border:2px solid #dcdcdc;
 	display:inline-block;
 	cursor:pointer;
@@ -414,9 +434,15 @@ table{
 	margin-right: 2vw;
 	margin-left: -5vw;
 
-
-
 }
+
+#add{
+	padding-top: 1.2vh;
+	padding-bottom: 1.2vh;
+}
+
+
+
 
 
 
