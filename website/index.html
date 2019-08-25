@@ -146,6 +146,29 @@
 			});
 		}
 
+		function generateICS() {
+		msgData1 = $('.start-time').text();
+    	msgData2 = $('.end-time').text();
+    	msgData3 = $('.Location').text();
+
+		// BEGIN:VEVENT
+		// DTSTART:20191024T060000Z
+		// DTEND:20191024T075000Z
+		// LOCATION:Hartley Teakle (83) S302
+		// DESCRIPTION:
+		// SUMMARY:INFS4203 T05
+		// PRIORITY:3
+		// END:VEVENT
+
+    	var icsMSG = "BEGIN:VCALENDAR\nVERSION:2.0\n"
+		icsMSG = icsMSG + "BEGIN:VEVENT\n";
+		BEGIN:VEVENT\nUID:me@google.com\nDTSTAMP:20120315T170000Z\nATTENDEE;CN=My Self ;RSVP=TRUE:MAILTO:me@gmail.com\nORGANIZER;CN=Me:MAILTO::me@gmail.com\nDTSTART:" + msgData1 +"\nDTEND:" + msgData2 +"\nLOCATION:" + msgData3 + "\nSUMMARY:Our Meeting Office\nEND:VEVENT\nEND:VCALENDAR";
+
+    	$('.test').click(function(){
+        window.open( "data:text/calendar;charset=utf8," + escape(icsMSG));
+    });
+		}
+
 		function makeTableEditable(type, index) {
 			
 			var textOnButton = document.getElementById(type + index.toString());
