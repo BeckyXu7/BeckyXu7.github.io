@@ -163,7 +163,7 @@
 
 		function download(filename, text) {
 			var element = document.createElement('a');
-			element.setAttribute('href', 'data:text/calendar;charset=utf8,' + encodeURIComponent(text));
+			element.setAttribute('href', "data:text/calendar;charset=utf8," + text);
 			element.setAttribute('download', filename);
 			
 			element.style.display = 'none';
