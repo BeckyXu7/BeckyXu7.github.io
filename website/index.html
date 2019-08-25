@@ -147,23 +147,26 @@
 		function makeTableEditable(type, index) {
 			
 			var textOnButton = document.getElementById(type + index.toString());
-			var task = document.getElementsByClassName(type);
-			var input = task[index-1].getElementsByTagName("p")[0];
+			//var task = document.getElementsByClassName(type);
+			console.log(textOnButton);
+			var text = textOnButton.previousElementSibling;
+			//var input = task[index].getElementsByTagName("p")[0];
 
 			if (textOnButton.name == "Edit") {
 				
-				input.contentEditable = 'true';
-				input.focus();
+				text.contentEditable = 'true';
+				//input.focus();
+				text.focus();
 				document.getElementById("editMessage").innerHTML = "You can edit assessment task and due date now";
 				textOnButton.name = "Save";
 				textOnButton.src = "images/edit_red.png";
 			} else if (textOnButton.name == "Save") {
 
-				input.contentEditable = 'false';
-				input.focus();
+				text.contentEditable = 'false';
+				//input.focus();
 				textOnButton.name = "Edit";
 				document.getElementById("editMessage").innerHTML = "";
-				textOnButton.src = "images/edit.png";
+				textOnButton.src = "images/edit3.png";
 
 	
 			}
