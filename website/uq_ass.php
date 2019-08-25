@@ -96,7 +96,7 @@ if (!empty($course_code) && !empty($semester) && !empty($user_mode)) {
 				} else {
 					echo '<div class="date">'.$table[$i][1].'<br><input id="'.$course_code.'date'.$i.'" type="datetime-local"/></div>';
 				}
-			 	echo '<div class="weight">'.$table[$i][2].'</div>';
+			 	echo '<div class="weight" id="'.$course_code.'Weight'.$i.'">'.$table[$i][2].'</div>';
 
 			}
 		}

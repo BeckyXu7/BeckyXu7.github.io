@@ -151,15 +151,17 @@
 					console.log($("#" + courseCode + "date" + j).val());
 					startDate = formatTime($("#" + courseCode + "date" + (1+(2*j))).val());
 					endDate = startDate;
-					Title = ($("#" + courseCode + "TitleText" + (1+(2*j))).text()).replace('\n', ':');
+					Title = document.getElementById(courseCode + "TitleText" + (1+(2*j))).innerText.replace("\n",": ");
+					description = "Weight of this assessment: " + document.getElementById(courseCode + "Weight" + (1+(2*j))).innerText.replace("\n","");
 					icsMSG = icsMSG + "\nBEGIN:VEVENT\nDTSTART:" + startDate;
 					icsMSG = icsMSG + "\nDTEND:" + endDate;
+					icsMSG = icsMSG + "\nDESCRIPTION:" + description;
 					icsMSG = icsMSG + "\nSUMMARY:" + Title + "\nEND:VEVENT";
 					
 				}
 			};
-			console.log(icsMSG);
 			icsMSG = icsMSG + "\nEND:VCALENDAR";
+			console.log(icsMSG);
 			return icsMSG;
 		}
 
