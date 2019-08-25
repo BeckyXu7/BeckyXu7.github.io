@@ -111,6 +111,36 @@
 			}
 		})
 
+		function getTime() {
+
+			// BEGIN:VCALENDAR
+			// VERSION:2.0
+			// BEGIN:VEVENT
+			// DTSTART:20191024T060000Z
+			// DTEND:20191024T075000Z
+			// LOCATION:Hartley Teakle (83) S302
+			// DESCRIPTION:
+			// SUMMARY:INFS4203 T05
+			// PRIORITY:3
+			// END:VEVENT
+
+			var icsMSG = "BEGIN:VCALENDAR\nVERSION:2.0\n";
+			
+
+			msgData1 = $('.start-time').text();
+			msgData2 = $('.end-time').text();
+			msgData3 = $('.Location').text();
+
+			
+			icsMSG = icsMSG + "BEGIN:VEVENT\nDTSTART:" + "\n";
+			icsMSG = icsMSG + "DTEND:"+ "\n";
+			icsMSG = icsMSG + "SUMMARY:" + "\nEND:VEVENT";
+			
+			 $('.test').click(function(){
+			     window.open( "data:text/calendar;charset=utf8," + escape(icsMSG));
+			 });
+		}
+
 		function removeCourse(elem, courseCode) {
 			var button = elem.parentNode;
 			var course = button.innerHTML.split('<')[0];
@@ -149,20 +179,23 @@
 		function makeTableEditable(type, index) {
 			
 			var textOnButton = document.getElementById(type + index.toString());
-			var task = document.getElementsByClassName(type);
-			var input = task[index-1].getElementsByTagName("p")[0];
+			//var task = document.getElementsByClassName(type);
+			console.log(textOnButton);
+			var text = textOnButton.previousElementSibling;
+			//var input = task[index].getElementsByTagName("p")[0];
 
 			if (textOnButton.name == "Edit") {
 				
-				input.contentEditable = 'true';
-				input.focus();
+				text.contentEditable = 'true';
+				//input.focus();
+				text.focus();
 				document.getElementById("editMessage").innerHTML = "You can edit assessment task and due date now";
 				textOnButton.name = "Save";
 				textOnButton.src = "images/edit_red.png";
 			} else if (textOnButton.name == "Save") {
 
-				input.contentEditable = 'false';
-				input.focus();
+				textOnButton.contentEditable = 'false';
+				//input.focus();
 				textOnButton.name = "Edit";
 				document.getElementById("editMessage").innerHTML = "";
 				textOnButton.src = "images/edit3.png";

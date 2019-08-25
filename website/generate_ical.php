@@ -2,10 +2,10 @@
 
 $event = array(
 	'id' => "1",
-	'title' => "UQ Party",
-	'description' => "Hey",
-	'datestart' => "20131016T085200Z",
-	'dateend' => "20131016T085312Z"
+	'title' => "MATH1051 A1",
+	'description' => "Online Quiz",
+	'datestart' => "20181016T085200Z",
+	'dateend' => "20118016T085212Z"
 );
 // iCal date format: yyyymmddThhiissZ
 
@@ -25,6 +25,7 @@ SUMMARY:' . addslashes($event['title']) . '
 DTSTART:' . $event['datestart'] . '
 END:VEVENT
 END:VCALENDAR';
+
 //set correct content-type-header
 if($event['id']){
 	header('Content-type: text/calendar; charset=utf-8');
