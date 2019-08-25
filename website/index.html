@@ -155,10 +155,11 @@
 					icsMSG = icsMSG + "\nBEGIN:VEVENT\nDTSTART:" + startDate;
 					icsMSG = icsMSG + "\nDTEND:" + endDate;
 					icsMSG = icsMSG + "\nSUMMARY:" + Title + "\nEND:VEVENT";
-					icsMSG = icsMSG + "\nEND:VCALENDAR";
+					
 				}
 			};
 			console.log(icsMSG);
+			icsMSG = icsMSG + "\nEND:VCALENDAR";
 			return icsMSG;
 		}
 
