@@ -88,10 +88,11 @@
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.1/jspdf.debug.js" integrity="sha384-X4GDYnzplvo6FyFvNVyh5H6VQKJ1yYkkzUDmxppFT/GAYvnhB6y+zoHdCQweNJ1T" crossorigin="anonymous"></script>
         <script>
-			
+			var loaded = false;
 			var courseArray = [];
 		
 		$('.addCourse').click(function() {
+			loaded = false;
 			var courseCode = $('#courseCodeInput').val().toUpperCase();
 			if (jQuery.inArray(courseCode, courseArray) != -1) {
 			} else if (courseCode != null && courseCode != "") {
@@ -140,18 +141,21 @@
 		}
 
 		function removeCourse(elem, courseCode) {
-			var button = elem.parentNode;
-			var course = button.innerHTML.split('<')[0];
-			var course_div = document.getElementById("divCell");
-			if (course_div != null){
-				course_div.parentNode.removeChild(course_div);
+			if (loaded) {
+				var button = elem.parentNode;
+				var course = button.innerHTML.split('<')[0];
+				var course_div = document.getElementById("divCell");
+				if (course_div != null){
+					course_div.parentNode.removeChild(course_div);
+				}
+				courseArray.splice( $.inArray(course,courseArray) ,1 );
+				$("#" + courseCode).remove();
+				button.parentNode.removeChild(button);
 			}
-			courseArray.splice( $.inArray(course,courseArray) ,1 );
-			$("#" + courseCode).remove();
-			button.parentNode.removeChild(button);
 		}
 
 		function addCourse(user_course_code, user_semester, user_year, user_mode, user_type){
+
 			$.ajax({
 				// type: "POST",
 				// url: "uq_ass.php",
@@ -167,7 +171,9 @@
 				url: "uq_ass.php?course_code="+user_course_code+"&semester="+user_semester+"&year="+user_year+"&mode="+user_mode+"&type="+user_type,
 
 				success: function(result) {
+					
 					$('#assessments').append(result);
+					loaded = true;
 				}
 			});
 		}
@@ -178,7 +184,6 @@
 			
 			var textOnButton = document.getElementById(type + index.toString());
 			//var task = document.getElementsByClassName(type);
-			console.log(textOnButton);
 			var text = textOnButton.previousElementSibling;
 			//var input = task[index].getElementsByTagName("p")[0];
 
