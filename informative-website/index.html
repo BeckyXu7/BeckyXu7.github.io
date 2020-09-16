@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>My World - My Hearing</title>
+  <link rel="stylesheet" type="text/css" href="fullpage.css" />
+  <link rel="stylesheet" type="text/css" href="examples.css" />
+  <link href="https://fonts.googleapis.com/css?family=Bitter|PT+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet prefetch' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <ul id="menu">
+    <li data-menuanchor="4thPage">
+      <a href="#4thPage">Purchase</a>
+    </li>
+    <li data-menuanchor="3rdPage">
+      <a href="#3rdPage">FAQ</a>
+    </li>
+    <li data-menuanchor="secondPage">
+      <a href="#secondPage">Introduction</a>
+    </li>
+    <li data-menuanchor="firstPage" class="active">
+      <a href="#firstPage">Home</a>
+    </li>
+  </ul>
+
+  <div id="fullpage">
+    <div class="section " id="section0">
+      <div class="intro">
+          <h1 class="page1_title">My World</h1>
+          <h1 class="page1_title">My Hearing</h1>
+          <h4 class="page1_title">Hearing care software designed for both audiologists and patients is finally here</h4>
+          
+        
+        <button id="admin">
+          <a href="administrator.php" id="adminBtn">Administrator Page</a>
+        </button>
+      </div>
+    </div>
+    <div class="section" id="section1">
+      <div class="slide" id="slide1">
+        <div class="intro">
+          <h1 class="whiteText">Introduction</h1>
+          <div class="intro_section">
+              <p>With My world - My Hearing Suite, manual data entry for the audiologists and paper-based surveys for the patients are a thing of the past.</p>
+              <p> The patients can easily access the application to do surveys daily. The audiologists can see instant results from the patients by tracking real-world data instead of in-clinic testing results, and to create the survey simply from the existed question pool.</p>
+    
+                <p>To see how My world can work for you, watch the demo and contact us today.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide" id="slide2">
+        <h1 class="whiteText">Video</h1>
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/WCkBjnTBVPg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+    </div>
+
+    <div class="section" id="section2">
+      <div class="intro">
+        <!-- https://codepen.io/kathykato/pen/MoZJom -->
+        <div class="container">
+
+          <h3 class="page3_title">Frequently Asked Questions</h3>
+
+          <div class="accordion">
+              <div class="accordion-item">
+                  <a>What's the advantage of this application compared with others?</a>
+                  <div class="content">
+                    <p>Our Application mainly focused on the hearing area. Therefore, we can record the GPS and photo in the survey which can give the audiologist better understanding of patient current situation.<br>
+                      Moreover, this application will plan to generate printed form after audiologist creat a suvery which can be useful for patient who not have mobile phone.</p>
+                  </div>
+                </div>
+            <div class="accordion-item">
+              <a>I am an audiologist. How do I get started?</a>
+              <div class="content">
+                <p>Register an account on the web portal: http://deco3801-unicorn.uqcloud.net<br>
+                  To set up the first survey template, create a new survey from scratch, add all your survey questions, then save it as a template. <br>
+                  To send a survey, firstly add new clients on the Clients page. After creating a new survey from a template or from scratch, select the clients who should do this survey.
+                  </p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <a>How do I get access to my patient-side app?</a>
+              <div class="content">
+                <p>A patient account will be registered by your audiologist and you can receive an email containing the account details including a default password. Log into your account on the mobile app, go to the setting screen and change your password. You can access the survey once it is set by your audiologist.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <a>How does the patient-side app protect the user privacy?</a>
+              <div class="content">
+                <p>The data is visible on the web portal to your audiologist’s account only. Your survey results will be sent directly to your audiologist without a local copy on your mobile phone, so the data is not accessible even if your account is leaked.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <a>I am interested / I have more questions!</a>
+              <div class="content">
+                <p>Contact us by filling out the form bellow.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section3">
+
+      <div id="purchase">
+        <p style="color: white; margin-bottom: 5vh;">If you are interested in the project...</p>
+        <form name="form">
+          <label class="gap">Full Name:*</label>
+          <br>
+          <input id="name" type="text" name="fname" class="contactElement" required>
+          <br>
+          <label class="gap">CONTACT EMAIL:*</label>
+          <br>
+          <input id="email" type="text" name="contactEmail" class="contactElement" required>
+          <br>
+          <label class="gap">Comments:</label>
+          <br>
+          <textarea id="timeArea" name="comments" placeholder="Please leave your comments"></textarea>
+          <button id="timeDone" type="button" onclick="submitPurchase()">Submit</button>
+        </form>
+      </div>
+
+      <div id="links">
+        <a href="https://www.facebook.com/sharer.php?u=http://deco3801-unicorn.uqcloud.net/info" class="fa fa-facebook" target="_blank"
+          id="fb"></a>
+          
+        <a href="https://twitter.com/intent/tweet?url=http://deco3801-unicorn.uqcloud.net/info&text=My%20World%20-%20My%20Hearing%20App:%20Hearing%20care%20software%20designed%20for%20both%20audiologists%20and%20patients%20is%20finally%20here" 
+        class="fa fa-twitter" target="_blank" id="tt"></a>
+        <a href="https://www.linkedin.com/shareArticle?url=http://deco3801-unicorn.uqcloud.net/info&title=My%20World%20-%20My%20Hearing"
+        target="_blank"  class="fa fa-linkedin"></a>
+      </div>
+    </div>
+  </div>
+
+
+    <script src="http://code.jquery.com/jquery-2.1.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="fullpage.js"></script>
+
+    <script type="text/javascript">
+        var start;
+        var end;
+        var state;
+        start = new Date();
+
+      
+      $(document).ready(function () { 
+      $.ajax({
+                type: 'POST',
+                url: 'visit.php',
+                data: {'type': 'visit'},
+                async: false,
+                success: function(){
+                }
+            });
+            var purchase_status = "false";
+            if(getCookie("purchase")=="true") {
+              purchase_status = "true";
+            }
+            $(window).unload(function() {
+                end = new Date();
+                state = end.getTime() - start.getTime();
+                $.ajax({
+                  type: 'POST',
+                  url: 'visit.php',
+                  data: {'type': 'leave',
+                          'staytime': state,
+                          'purchase': purchase_status},
+                  async: false,
+                  success: function(){
+                    document.cookie = "purchase=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+                  }
+                });
+            });
+      });
+
+      function submitPurchase() {
+
+        var type = "purchase";
+
+        var name = $("#name").val();
+        if (name == "") {
+            alert("The name cannot be empty.");
+            return false;
+        }
+
+        var email = $("#email").val();
+        if (email == "") {
+            alert("The email cannot be empty.");
+            return false;
+        } else if (!checkInput(email)) {
+            return false;
+        }
+
+        var comment;
+        if($("#timeArea").val() != "none") {
+          comment = $("#timeArea").val();
+        }
+
+//alert(options);
+//alert (positions);
+
+$.ajax({
+    type: 'POST',
+    url: 'visit.php',
+    data: {'comment': comment,
+        'name': name, 
+        'type': type,
+        'email': email},
+    async: false,
+    success: function(){
+      setCookie("purchase","true",1);
+      alert("submit successfully");
+    }
+});
+}
+
+      var myFullpage = new fullpage('#fullpage', {
+        menu: '#menu',
+        anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage'],
+        sectionsColor: ['#324755', '#ffffff', '#d97d54', '#324755'],
+        autoScrolling: false,
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE'
+      });
+
+      function checkInput(inputEmail){
+        var email =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
+        if (!inputEmail.match(email)) {
+          alert("Please check your email style.");
+          return false;
+        } else {
+          return true;
+        }
+        
+      }
+
+
+    const items = document.querySelectorAll(".accordion a");
+
+    function toggleAccordion() {
+      this.classList.toggle('active');
+      this.nextElementSibling.classList.toggle('active');
+    }
+
+    function setCookie(cname,cvalue,exdays)
+{
+  var d = new Date();
+  d.setTime(d.getTime()+(exdays*24*60*60*1000));
+  var expires = "expires="+d.toGMTString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) 
+  {
+    var c = ca[i].trim();
+    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+  return "";
+}
+
+    items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+
+  </script>
+  
+
+</body>
+
+</html>

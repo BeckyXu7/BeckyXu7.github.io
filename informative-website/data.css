@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR|Playfair+Display&display=swap');
+
+#chartdiv {
+    width: 100%;
+    height: 100vh;
+  }
+
+h2 {
+    margin: 30px;
+    padding: 15px;
+}
+
+.big_title {
+    text-align: center;
+    font-family: 'Noto Serif KR', serif;
+}
+
+#purchaseHistory {
+  margin-top: 10px;
+}
+
+.purchase_info {
+  width: 30%;
+}
+
+.purchase_info div {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.purchase_info .comment {
+  border-style: solid;
+  border-color: #aaaaaa;
+  padding: 5px;
+  border-width: 1px;
+  display: block;
+  overflow-wrap: break-word;
+}
+
+.order {
+  padding-bottom: 25px;
+  margin: 0 15vw 25px 15vw;
+  background-color:#f2f2f2;
+  font-size: 16px;
+  font-family: 'Playfair Display', serif
+}
+
+#back{
+    background-color: #d97d54;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 1.5em;
+    padding: 1vh 1vw 1vh 1vw;
+    margin-top: 5vh;
+    margin-left: 5vw;
+}
+
+#back a {
+  text-decoration: none;
+  color: white;
+}
+
+.row{
+  display: flex;
+  justify-content: space-around;
+}
+
+.row_between{
+  display: flex;
+  justify-content: space-between;
+}
+
+#convert {
+  width: 70vw;
+  margin: auto;
+}
+
+.timeDone {
+  background-color: #d97d54;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 1.2em;
+  width: 130px;
+  padding: 1vh 1vw 1vh 1vw;
+}
+
+.graph {
+  height: 60vh;
+  width: 40vw;
+}
+
+#convert_chart{
+  margin: auto;
+}
